@@ -1,0 +1,216 @@
+export const siteConfig = {
+  name: "Christian Bourlier",
+  title: "Christian Bourlier — Data Architect, AI Strategist, Builder",
+  description:
+    "Data architect and AI strategist with 8+ years in engineering, 20+ years in sales leadership, and a decade of professional poker. I build the system AND close the deal.",
+  url: "https://christianbourlier.com",
+  email: "christianbourlier@gmail.com",
+  linkedin: "https://linkedin.com/in/christianbourlier",
+  medium: "https://medium.com/@christianbourlier",
+};
+
+export const hero = {
+  name: "Christian Bourlier",
+  tagline: "I build the system AND close the deal.",
+  metrics: [
+    { value: "8+", label: "yrs engineering" },
+    { value: "20+", label: "yrs sales" },
+    { value: "10", label: "yrs poker" },
+  ],
+  availability: "Open to opportunities",
+  scrollCta: "See the journey",
+};
+
+export const timeline = [
+  {
+    year: "2005",
+    title: "Professional Poker",
+    description:
+      "A decade at the tables built pattern recognition, bankroll management, and the ability to read people under pressure. Every decision had real stakes.",
+  },
+  {
+    year: "2009",
+    title: "Verizon — District Sales Manager",
+    description:
+      "Led district-level sales teams, driving revenue targets and building a leadership playbook grounded in accountability and team development.",
+  },
+  {
+    year: "2012",
+    title: "Real Estate",
+    description:
+      "Transitioned into real estate, sharpening negotiation skills and learning to close complex, high-value deals with multiple stakeholders.",
+  },
+  {
+    year: "2014",
+    title: "Dream Stay — Founder",
+    description:
+      "Built and operated a hospitality technology company from the ground up, handling everything from product development to customer acquisition.",
+  },
+  {
+    year: "2018",
+    title: "Hack Reactor",
+    description:
+      "Immersive software engineering program. The pivot from business to code, formalized through one of the most rigorous bootcamps in the industry.",
+  },
+  {
+    year: "2019",
+    title: "MightyHive — Data Scientist",
+    description:
+      "Entered the data world building ML models and analytics pipelines for enterprise clients, working at the intersection of media and measurement.",
+  },
+  {
+    year: "2021",
+    title: "Monks — Sr. Data Engineer",
+    description:
+      "Scaled data infrastructure across global teams, designing pipelines and architectures that served billions of rows for Fortune 500 clients.",
+  },
+  {
+    year: "2025",
+    title: "Three Bears Data — Principal Architect",
+    description:
+      "Leading data architecture and AI strategy at the principal level, designing systems that bridge technical depth with business outcomes.",
+  },
+];
+
+export const currentlyBuilding = [
+  {
+    name: "OptiMeasure",
+    description:
+      "Cookieless attribution platform built on privacy-first measurement methodology. Moving beyond third-party cookies with statistical modeling and server-side signals.",
+  },
+  {
+    name: "CacheBash",
+    description:
+      "Async dispatch infrastructure for AI agent networks. A coordination layer that enables multi-agent systems to communicate, delegate, and persist state across sessions.",
+  },
+  {
+    name: "AI-Augmentation Portal",
+    description:
+      "An internal platform for orchestrating AI-augmented workflows, bridging human intelligence with AI capabilities through structured delegation and feedback loops.",
+  },
+];
+
+export const competencies = [
+  "Data Architecture",
+  "AI+HI Solutions",
+  "Executive Relationships",
+  "Rapid Prototyping",
+  "Team Building",
+  "Business Strategy",
+];
+
+export const approach = {
+  title: "Approach",
+  philosophy: "Diagnose \u2192 POC \u2192 Iterate \u2192 Deploy",
+  description:
+    "Every engagement starts with understanding the real problem, not the symptoms. Build a proof of concept fast, iterate with real feedback, and deploy with confidence.",
+};
+
+export const openTo = [
+  {
+    role: "AI Strategist",
+    description:
+      "Defining AI roadmaps that connect technical capabilities to business outcomes. Not just what AI can do, but what it should do for your organization.",
+  },
+  {
+    role: "AI/ML Solutions Engineer",
+    description:
+      "Building production ML systems end-to-end. From data pipelines through model serving, with the engineering rigor to keep them running at scale.",
+  },
+  {
+    role: "Solutions Architect",
+    description:
+      "Designing cloud-native data architectures on GCP. BigQuery, Dataform, Cloud Functions, Vertex AI \u2014 the full stack, tailored to your constraints.",
+  },
+  {
+    role: "Technical Account Manager",
+    description:
+      "Bridging the gap between technical teams and executive stakeholders. Two decades of sales experience meets deep engineering fluency.",
+  },
+];
+
+export const skills = [
+  "Python",
+  "TypeScript",
+  "SQL",
+  "JavaScript",
+  "GCP",
+  "BigQuery",
+  "Cloud Functions",
+  "Vertex AI",
+  "dbt",
+  "Airflow",
+  "Dataform",
+  "Looker",
+  "LangChain",
+  "Claude API",
+  "scikit-learn",
+  "TensorFlow",
+];
+
+export const certifications = [
+  "GCP Professional Data Engineer",
+  "GCP Professional Cloud Architect",
+];
+
+export const testimonials = [
+  {
+    quote:
+      "A highly skilled senior data engineer with strong expertise in pipelining complex data sources, GCP, BQML, and data analytics technologies. Christian consistently delivered high-quality work and demonstrated deep technical knowledge across our most challenging projects.",
+    author: "Brianna Mersey",
+    title: "VP Data",
+  },
+  {
+    quote:
+      "A naturally curious and technically adept person. Natural leader motivating teams to push boundaries and deliver results that exceed expectations. His ability to combine technical depth with genuine people skills is rare.",
+    author: "Craig Quincy",
+    title: "Engineering Leader",
+  },
+  {
+    quote:
+      "Terrific to work with. Energy for learning and teaching that elevates everyone around him. Christian brings a rare combination of technical skill and infectious enthusiasm that makes complex projects feel achievable.",
+    author: "Eric Budd",
+    title: "Engineering Data Director",
+  },
+  {
+    quote:
+      "One of the smartest, hardest working, inspiring, and motivating team leaders I\u2019ve had the pleasure of working with. His drive and vision set a standard that pushed our entire team to new levels.",
+    author: "Malek Bishawi",
+    title: "Global Sales",
+  },
+  {
+    quote:
+      "Stellar personality that draws people in. His ability to connect with anyone, from executives to individual contributors, creates an atmosphere of trust and collaboration that drives results.",
+    author: "Sumer Anelli",
+    title: "Convention Services Manager",
+  },
+  {
+    quote:
+      "A born leader, a man of true integrity. Christian approaches every challenge with honesty and determination, earning the respect and loyalty of everyone he works with.",
+    author: "Matthew Walvick",
+    title: "Healthcare Technology Physician",
+  },
+];
+
+export const articles = [
+  {
+    title: "The Case for AI-Augmented Data Teams",
+    url: "https://medium.com/@christianbourlier",
+  },
+  {
+    title: "Building Privacy-First Attribution in a Cookieless World",
+    url: "https://medium.com/@christianbourlier",
+  },
+  {
+    title: "From Poker Tables to Data Pipelines: Pattern Recognition at Scale",
+    url: "https://medium.com/@christianbourlier",
+  },
+];
+
+export const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Journey", href: "#journey" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Contact", href: "#contact" },
+];
