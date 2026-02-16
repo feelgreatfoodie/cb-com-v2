@@ -105,7 +105,7 @@ function Competencies() {
     <div className="flex flex-wrap gap-3">
       {competencies.map((comp, i) => (
         <FadeInOnScroll key={comp} delay={i * 0.05}>
-          <span className="px-4 py-2 rounded-full border border-border/60 text-sm font-light text-text-secondary hover:border-accent-warm/40 hover:text-accent-warm transition-all duration-300">
+          <span className="px-4 py-2 rounded-full border border-border/60 text-sm font-light text-text-secondary hover:border-accent-warm/40 hover:text-accent-warm hover:scale-105 hover:shadow-[0_0_12px_rgba(212,160,80,0.1)] transition-all duration-300">
             {comp}
           </span>
         </FadeInOnScroll>
@@ -135,7 +135,7 @@ function OpenTo() {
     <div className="grid gap-6 sm:grid-cols-2">
       {openTo.map((item, i) => (
         <FadeInOnScroll key={item.role} delay={i * 0.1}>
-          <div className="p-6 rounded-lg border border-border/50 bg-surface/20 hover:border-accent-warm/30 transition-all duration-500">
+          <div className="p-6 rounded-lg border-l-2 border-l-accent-warm/60 border-y border-r border-y-border/30 border-r-border/30 bg-surface/20 hover:border-l-accent-warm transition-all duration-500">
             <h3 className="text-base font-normal text-accent-warm mb-2">
               {item.role}
             </h3>

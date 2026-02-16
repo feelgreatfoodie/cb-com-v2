@@ -295,7 +295,7 @@ function Contact() {
           />
           <button
             type="submit"
-            className="px-6 py-3 rounded-lg border border-accent-active/50 text-accent-active text-sm font-light hover:bg-accent-active/10 transition-all duration-300"
+            className="px-6 py-3 rounded-lg bg-accent-active text-base text-sm font-light hover:shadow-[0_0_20px_rgba(111,195,223,0.2)] transition-all duration-300"
           >
             Send Message
           </button>
@@ -325,16 +325,6 @@ export default function Evidence() {
             Testimonials
           </SectionHeading>
           <Testimonials />
-        </div>
-      </section>
-
-      {/* Writing */}
-      <section className="px-6 sm:px-8 py-24 sm:py-32">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="Thinking out loud">
-            Writing
-          </SectionHeading>
-          <Writing />
         </div>
       </section>
 

@@ -13,6 +13,10 @@ export default function Footer() {
       className="border-t border-border/30 bg-base"
     >
       <div className="mx-auto max-w-6xl px-6 sm:px-8 py-12">
+        {/* Closing line */}
+        <p className="text-center text-text-secondary/60 font-mono text-xs tracking-wider mb-8">
+          Built with purpose.
+        </p>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Name / copyright */}
           <div className="text-sm text-text-secondary font-light">
