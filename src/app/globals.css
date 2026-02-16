@@ -63,6 +63,24 @@
   100% { height: 60px; opacity: 0; }
 }
 
+/* Timeline traveling light */
+@keyframes timeline-light {
+  0% {
+    top: -30%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
 @theme inline {
   --color-base: var(--base);
   --color-surface: var(--surface);
