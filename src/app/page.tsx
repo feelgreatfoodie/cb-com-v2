@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="depth-gradient">
         <Surface />
         <Story />
         <Evidence />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   skills,
@@ -96,9 +96,23 @@ function Skills() {
 
 function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [paused, activeIndex]);
 
   return (
-    <div>
+    <div
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+    >
       <div className="relative min-h-[240px]">
         <AnimatePresence mode="wait">
           <motion.blockquote
@@ -109,7 +123,16 @@ function Testimonials() {
             transition={{ duration: 0.4 }}
             className="absolute inset-0"
           >
-            <div className="border-l-2 border-accent-active/30 pl-6 py-2">
+            <div className="border-l-2 border-accent-active/30 pl-6 py-2 relative overflow-hidden">
+              {!paused && (
+                <motion.div
+                  key={`progress-${activeIndex}`}
+                  className="absolute left-0 top-0 w-0.5 bg-accent-active"
+                  initial={{ height: "0%" }}
+                  animate={{ height: "100%" }}
+                  transition={{ duration: 6, ease: "linear" }}
+                />
+              )}
               <p className="text-lg font-light leading-relaxed text-text-primary mb-6 italic">
                 &ldquo;{testimonials[activeIndex].quote}&rdquo;
               </p>
@@ -133,10 +156,10 @@ function Testimonials() {
           <button
             key={i}
             onClick={() => setActiveIndex(i)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            className={`h-2 rounded-full transition-all duration-300 ${
               i === activeIndex
                 ? "bg-accent-active w-6"
-                : "bg-border hover:bg-text-secondary"
+                : "bg-border hover:bg-text-secondary w-2"
             }`}
             aria-label={`View testimonial ${i + 1}`}
           />
@@ -295,7 +318,7 @@ function Contact() {
           />
           <button
             type="submit"
-            className="px-6 py-3 rounded-lg border border-accent-active/50 text-accent-active text-sm font-light hover:bg-accent-active/10 transition-all duration-300"
+            className="px-6 py-3 rounded-lg bg-accent-active text-base text-sm font-light hover:shadow-[0_0_20px_rgba(111,195,223,0.2)] transition-all duration-300"
           >
             Send Message
           </button>
@@ -307,7 +330,7 @@ function Contact() {
 
 export default function Evidence() {
   return (
-    <div className="bg-base">
+    <div>
       {/* Skills & Certifications */}
       <section id="skills" className="px-6 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl">
@@ -325,16 +348,6 @@ export default function Evidence() {
             Testimonials
           </SectionHeading>
           <Testimonials />
-        </div>
-      </section>
-
-      {/* Writing */}
-      <section className="px-6 sm:px-8 py-24 sm:py-32">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="Thinking out loud">
-            Writing
-          </SectionHeading>
-          <Writing />
         </div>
       </section>
 

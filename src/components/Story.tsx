@@ -55,7 +55,12 @@ function Timeline() {
   return (
     <div className="relative">
       {/* Vertical line */}
-      <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" />
+      <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border">
+        {/* Traveling light */}
+        <div className="absolute inset-x-0 top-0 bottom-0 overflow-hidden">
+          <div className="absolute left-0 w-full animate-[timeline-light_8s_ease-in-out_infinite] bg-gradient-to-b from-transparent via-accent-active/40 to-transparent h-[30%]" />
+        </div>
+      </div>
 
       <div className="space-y-12">
         {timeline.map((item, i) => (
@@ -105,7 +110,7 @@ function Competencies() {
     <div className="flex flex-wrap gap-3">
       {competencies.map((comp, i) => (
         <FadeInOnScroll key={comp} delay={i * 0.05}>
-          <span className="px-4 py-2 rounded-full border border-border/60 text-sm font-light text-text-secondary hover:border-accent-warm/40 hover:text-accent-warm transition-all duration-300">
+          <span className="px-4 py-2 rounded-full border border-border/60 text-sm font-light text-text-secondary hover:border-accent-warm/40 hover:text-accent-warm hover:scale-105 hover:shadow-[0_0_12px_rgba(212,160,80,0.1)] transition-all duration-300">
             {comp}
           </span>
         </FadeInOnScroll>
@@ -135,7 +140,7 @@ function OpenTo() {
     <div className="grid gap-6 sm:grid-cols-2">
       {openTo.map((item, i) => (
         <FadeInOnScroll key={item.role} delay={i * 0.1}>
-          <div className="p-6 rounded-lg border border-border/50 bg-surface/20 hover:border-accent-warm/30 transition-all duration-500">
+          <div className="p-6 rounded-lg border-l-2 border-l-accent-warm/60 border-y border-r border-y-border/30 border-r-border/30 bg-surface/20 hover:border-l-accent-warm transition-all duration-500">
             <h3 className="text-base font-normal text-accent-warm mb-2">
               {item.role}
             </h3>
@@ -151,7 +156,7 @@ function OpenTo() {
 
 export default function Story() {
   return (
-    <div className="bg-base">
+    <div>
       {/* Journey / Timeline */}
       <section id="journey" className="px-6 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl">
