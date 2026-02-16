@@ -55,7 +55,12 @@ function Timeline() {
   return (
     <div className="relative">
       {/* Vertical line */}
-      <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" />
+      <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border">
+        {/* Traveling light */}
+        <div className="absolute inset-x-0 top-0 bottom-0 overflow-hidden">
+          <div className="absolute left-0 w-full animate-[timeline-light_8s_ease-in-out_infinite] bg-gradient-to-b from-transparent via-accent-active/40 to-transparent h-[30%]" />
+        </div>
+      </div>
 
       <div className="space-y-12">
         {timeline.map((item, i) => (

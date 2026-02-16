@@ -7,6 +7,7 @@ import { navLinks } from "@/config/content";
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +15,29 @@ export default function Navigation() {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { rootMargin: "-40% 0px -55% 0px" }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
   }, []);
 
   useEffect(() => {
@@ -50,15 +74,29 @@ export default function Navigation() {
 
             {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-light text-text-secondary hover:text-text-primary transition-colors duration-300"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.replace("#", "");
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`relative text-sm font-light transition-colors duration-300 ${
+                      isActive
+                        ? "text-text-primary"
+                        : "text-text-secondary hover:text-text-primary"
+                    }`}
+                  >
+                    {link.label}
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-indicator"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-active"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </a>
+                );
+              })}
             </div>
 
             {/* Mobile hamburger */}
