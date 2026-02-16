@@ -307,7 +307,7 @@ function Contact() {
 
 export default function Evidence() {
   return (
-    <div className="bg-base">
+    <div>
       {/* Skills & Certifications */}
       <section id="skills" className="px-6 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl">

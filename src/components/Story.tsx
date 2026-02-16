@@ -151,7 +151,7 @@ function OpenTo() {
 
 export default function Story() {
   return (
-    <div className="bg-base">
+    <div>
       {/* Journey / Timeline */}
       <section id="journey" className="px-6 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl">
