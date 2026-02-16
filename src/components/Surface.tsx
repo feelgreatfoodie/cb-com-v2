@@ -71,6 +71,33 @@ const letterVariants = {
 };
 
 export default function Surface() {
+  const [isReturning, setIsReturning] = useState(false);
+
+  // B1: Time-of-day palette shift
+  useEffect(() => {
+    const hour = new Date().getHours();
+    const root = document.documentElement;
+
+    if (hour >= 6 && hour < 12) {
+      root.style.setProperty("--base", "#1b1815");
+      root.style.setProperty("--layer-2", "#171410");
+      root.style.setProperty("--layer-3", "#141210");
+    } else if (hour >= 18 || hour < 6) {
+      root.style.setProperty("--base", "#181719");
+      root.style.setProperty("--layer-2", "#141316");
+      root.style.setProperty("--layer-3", "#111015");
+    }
+  }, []);
+
+  // B2: Return visitor memory
+  useEffect(() => {
+    const hasVisited = localStorage.getItem("cb-visited");
+    if (hasVisited) {
+      setIsReturning(true);
+    }
+    localStorage.setItem("cb-visited", new Date().toISOString());
+  }, []);
+
   return (
     <section
       id="about"
@@ -83,6 +110,18 @@ export default function Surface() {
       </div>
 
       <div className="relative mx-auto max-w-6xl w-full py-32">
+        {/* Return visitor greeting */}
+        {isReturning && (
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="block text-xs font-mono text-text-secondary/50 tracking-widest mb-6"
+          >
+            Welcome back.
+          </motion.span>
+        )}
+
         {/* Availability badge with radar ping */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
