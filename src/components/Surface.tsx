@@ -157,7 +157,17 @@ export default function Surface() {
           ))}
         </motion.h1>
 
-        {/* Tagline */}
+        {/* Three identities */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="font-mono text-sm tracking-[0.2em] uppercase text-accent-active mb-6"
+        >
+          {hero.subtitle}
+        </motion.p>
+
+        {/* Tagline — premise */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Christian Bourlier",
-  title: "Christian Bourlier — Data Architect, AI Strategist, Builder",
+  title: "Christian Bourlier — Architect, Strategist, Operator",
   description:
-    "Data architect and AI strategist with 8+ years in engineering, 20+ years in sales leadership, and a decade of professional poker. I build the system AND close the deal.",
+    "A decade reading rooms. Twenty years closing deals. Eight years building the systems that connect the two. The architecture of leverage.",
   url: "https://christianbourlier.com",
   email: "christianbourlier@gmail.com",
   linkedin: "https://linkedin.com/in/christianbourlier",
@@ -11,14 +11,15 @@ export const siteConfig = {
 
 export const hero = {
   name: "Christian Bourlier",
-  tagline: "I build the system AND close the deal.",
+  subtitle: "Architect · Strategist · Operator",
+  tagline: "The Architecture of Leverage",
   metrics: [
-    { value: "8+", label: "yrs engineering" },
-    { value: "20+", label: "yrs sales" },
-    { value: "10", label: "yrs poker" },
+    { value: "10", label: "yrs reading rooms" },
+    { value: "20+", label: "yrs closing deals" },
+    { value: "8+", label: "yrs building systems" },
   ],
   availability: "Open to opportunities",
-  scrollCta: "See the journey",
+  scrollCta: "See the architecture",
 };
 
 export const timeline = [
@@ -100,10 +101,10 @@ export const competencies = [
 ];
 
 export const approach = {
-  title: "Approach",
-  philosophy: "Diagnose \u2192 POC \u2192 Iterate \u2192 Deploy",
+  title: "The Leverage Loop",
+  philosophy: "Diagnose \u2192 Architect \u2192 Augment \u2192 Scale",
   description:
-    "Every engagement starts with understanding the real problem, not the symptoms. Build a proof of concept fast, iterate with real feedback, and deploy with confidence.",
+    "Every engagement starts by reading the room, not the requirements doc. Architect the system, augment the team, then scale what works.",
 };
 
 export const openTo = [
@@ -210,7 +211,7 @@ export const articles = [
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Journey", href: "#journey" },
-  { label: "Projects", href: "#projects" },
+  { label: "Lab", href: "#lab" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
