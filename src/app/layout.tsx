@@ -17,17 +17,18 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Christian Bourlier — Data Architect, AI Strategist, Builder",
+  title: "Christian Bourlier — Architect, Strategist, Operator",
   description:
-    "Data architect and AI strategist with 8+ years in engineering, 20+ years in sales leadership, and a decade of professional poker. I build the system AND close the deal.",
+    "A decade reading rooms. Twenty years closing deals. Eight years building the systems that connect the two. The architecture of leverage.",
   keywords: [
     "data architect",
     "AI strategist",
-    "solutions engineer",
+    "solutions architect",
+    "operator",
     "GCP",
     "BigQuery",
     "machine learning",
-    "data engineering",
+    "AI infrastructure",
     "Christian Bourlier",
   ],
   authors: [{ name: "Christian Bourlier" }],
@@ -36,16 +37,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://christianbourlier.com",
-    title: "Christian Bourlier — Data Architect, AI Strategist, Builder",
+    title: "Christian Bourlier — Architect, Strategist, Operator",
     description:
-      "Data architect and AI strategist with 8+ years in engineering, 20+ years in sales leadership, and a decade of professional poker.",
+      "A decade reading rooms. Twenty years closing deals. Eight years building the systems that connect the two.",
     siteName: "Christian Bourlier",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Christian Bourlier — Data Architect, AI Strategist, Builder",
+    title: "Christian Bourlier — Architect, Strategist, Operator",
     description:
-      "Data architect and AI strategist. I build the system AND close the deal.",
+      "The architecture of leverage. Risk. Revenue. Reality.",
     creator: "@christianbourlier",
   },
   robots: {
@@ -78,7 +79,7 @@ export default function RootLayout({
               name: "Christian Bourlier",
               url: "https://christianbourlier.com",
               email: "christianbourlier@gmail.com",
-              jobTitle: "Principal Data Architect",
+              jobTitle: "Principal Architect & AI Strategist",
               sameAs: [
                 "https://linkedin.com/in/christianbourlier",
                 "https://medium.com/@christianbourlier",
