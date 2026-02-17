@@ -15,7 +15,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 sm:px-8 py-12">
         {/* Closing line */}
         <p className="text-center text-text-secondary/60 font-mono text-xs tracking-wider mb-8">
-          Built with purpose.
+          Strength and Honour.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Name / copyright */}

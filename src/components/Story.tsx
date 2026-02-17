@@ -160,7 +160,7 @@ export default function Story() {
       {/* Journey / Timeline */}
       <section id="journey" className="px-6 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="From poker tables to data pipelines">
+          <SectionHeading subtitle="Risk. Revenue. Reality.">
             Journey
           </SectionHeading>
           <Timeline />
@@ -174,20 +174,20 @@ export default function Story() {
         </div>
       </section>
 
-      {/* Currently Building */}
-      <section id="projects" className="px-6 sm:px-8 py-24 sm:py-32">
+      {/* The Lab */}
+      <section id="lab" className="px-6 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="Active projects">
-            Currently Building
+          <SectionHeading subtitle="Active R&D">
+            The Lab
           </SectionHeading>
           <CurrentlyBuilding />
         </div>
       </section>
 
-      {/* Core Competencies */}
+      {/* Capabilities */}
       <section className="px-6 sm:px-8 py-16">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading>Core Competencies</SectionHeading>
+          <SectionHeading>Capabilities</SectionHeading>
           <Competencies />
         </div>
       </section>
@@ -195,7 +195,7 @@ export default function Story() {
       {/* Open To */}
       <section className="px-6 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="Roles I'm exploring">
+          <SectionHeading subtitle="How I deploy leverage">
             Open To
           </SectionHeading>
           <OpenTo />

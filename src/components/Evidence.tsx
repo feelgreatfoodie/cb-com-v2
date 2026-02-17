@@ -334,7 +334,7 @@ export default function Evidence() {
       {/* Skills & Certifications */}
       <section id="skills" className="px-6 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="Technologies and certifications">
+          <SectionHeading subtitle="The toolkit">
             Skills
           </SectionHeading>
           <Skills />
@@ -344,8 +344,8 @@ export default function Evidence() {
       {/* Testimonials */}
       <section className="px-6 sm:px-8 py-24 sm:py-32 bg-surface/20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="What people say">
-            Testimonials
+          <SectionHeading subtitle="What they say">
+            Signal
           </SectionHeading>
           <Testimonials />
         </div>
@@ -354,8 +354,8 @@ export default function Evidence() {
       {/* Contact */}
       <section id="contact" className="px-6 sm:px-8 py-24 sm:py-32 bg-surface/20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="Let's talk">
-            Contact
+          <SectionHeading subtitle="Let's build">
+            Deploy Leverage
           </SectionHeading>
           <Contact />
         </div>
