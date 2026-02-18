@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { siteConfig } from "@/config/content";
 
 export default function Footer() {
@@ -33,14 +32,6 @@ export default function Footer() {
               className="flex items-center gap-1.5 text-text-secondary hover:text-accent-active transition-colors duration-300 font-mono text-xs tracking-wider"
               aria-label="Rezzed.ai"
             >
-              <Image
-                src="/rezmark.svg"
-                alt="Rezzed.ai"
-                width={16}
-                height={16}
-                className="h-4 w-4 opacity-60"
-                unoptimized
-              />
               rezzed.ai
             </a>
 
