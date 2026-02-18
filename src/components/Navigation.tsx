@@ -65,7 +65,7 @@ export default function Navigation() {
         }`}
       >
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-24 items-center justify-between">
             <a
               href="#"
               className="hover:opacity-80 transition-opacity duration-300"
@@ -75,7 +75,7 @@ export default function Navigation() {
                 alt="Christian Bourlier"
                 width={320}
                 height={96}
-                className="h-[56px] w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+                className="h-[80px] w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
                 priority
               />
             </a>
