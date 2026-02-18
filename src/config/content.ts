@@ -24,28 +24,28 @@ export const hero = {
 
 export const timeline = [
   {
-    year: "2005",
+    year: "2004",
     title: "Professional Poker",
     description:
       "A decade at the tables built pattern recognition, bankroll management, and the ability to read people under pressure. Every decision had real stakes.",
   },
   {
-    year: "2009",
-    title: "Verizon — District Sales Manager",
-    description:
-      "Led district-level sales teams, driving revenue targets and building a leadership playbook grounded in accountability and team development.",
-  },
-  {
-    year: "2012",
+    year: "2013",
     title: "Real Estate",
     description:
       "Transitioned into real estate, sharpening negotiation skills and learning to close complex, high-value deals with multiple stakeholders.",
   },
   {
     year: "2014",
-    title: "Dream Stay — Founder",
+    title: "Verizon — District Sales Manager",
     description:
-      "Built and operated a hospitality technology company from the ground up, handling everything from product development to customer acquisition.",
+      "Led district-level sales teams, driving revenue targets and building a leadership playbook grounded in accountability and team development.",
+  },
+  {
+    year: "2016",
+    title: "Dream Stay — Strategy & Operations Lead",
+    description:
+      "Scaled a hospitality technology company from the ground up, handling everything from pricing optimization to operations systems and revenue management.",
   },
   {
     year: "2018",
@@ -67,9 +67,15 @@ export const timeline = [
   },
   {
     year: "2025",
-    title: "Three Bears Data — Principal Architect",
+    title: "Three Bears Data — Co-founder & Principal Architect",
     description:
       "Leading data architecture and AI strategy at the principal level, designing systems that bridge technical depth with business outcomes.",
+  },
+  {
+    year: "2025",
+    title: "Rezzed.ai — Founder & Principal Architect",
+    description:
+      "Building tools for developers who code with AI. Multi-agent orchestration, MCP servers, and developer workflow infrastructure.",
   },
 ];
 
@@ -130,23 +136,41 @@ export const openTo = [
   },
 ];
 
-export const skills = [
-  "Python",
-  "TypeScript",
-  "SQL",
-  "JavaScript",
-  "GCP",
-  "BigQuery",
-  "Cloud Functions",
-  "Vertex AI",
-  "dbt",
-  "Airflow",
-  "Dataform",
-  "Looker",
-  "LangChain",
-  "Claude API",
-  "scikit-learn",
-  "TensorFlow",
+export const skillCategories = [
+  {
+    label: "AI & LLM",
+    skills: [
+      "MCP Development",
+      "Agentic Workflows (ReAct)",
+      "System Prompt Engineering",
+      "Multi-Model Orchestration",
+      "Context Caching Strategies",
+      "RAG Pipelines",
+    ],
+  },
+  {
+    label: "Cloud & Infrastructure",
+    skills: [
+      "GCP (Cloud Run, BigQuery, Firestore)",
+      "Docker / Containerization",
+      "GitHub Actions (CI/CD)",
+      "Event-Driven Microservices",
+      "Serverless Architecture",
+    ],
+  },
+  {
+    label: "Engineering & Data",
+    skills: [
+      "TypeScript",
+      "Python",
+      "FastAPI",
+      "Node.js",
+      "Flutter / Dart (Mobile)",
+      "Vector Databases (pgvector)",
+      "REST & GraphQL APIs",
+      "Real-time Streaming",
+    ],
+  },
 ];
 
 export const certifications = [
