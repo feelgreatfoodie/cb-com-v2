@@ -34,11 +34,11 @@ export default function Footer() {
               aria-label="Rezzed.ai"
             >
               <Image
-                src="/signature-white.png"
+                src="/rezmark.svg"
                 alt="Rezzed.ai"
-                width={48}
-                height={14}
-                className="h-[14px] w-auto opacity-60"
+                width={16}
+                height={16}
+                className="h-4 w-4 opacity-60"
                 unoptimized
               />
               rezzed.ai
