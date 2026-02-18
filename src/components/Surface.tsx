@@ -205,7 +205,7 @@ export default function Surface() {
             className="group inline-flex flex-col items-start gap-4 text-sm text-text-secondary hover:text-text-primary transition-colors duration-300"
           >
             <span className="tracking-wide">{hero.scrollCta}</span>
-            <span className="block w-px bg-accent-active/40 animate-[scroll-line_3s_ease-in-out_infinite]" />
+            <span className="block w-px h-[60px] origin-top bg-accent-active/40 animate-[scroll-line_3s_ease-in-out_infinite]" />
           </a>
         </motion.div>
       </div>
