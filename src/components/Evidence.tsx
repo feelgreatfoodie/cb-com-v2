@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  skills,
+  skillCategories,
   certifications,
   testimonials,
   articles,
@@ -53,15 +53,32 @@ function SectionHeading({
 }
 
 function Skills() {
+  let globalIndex = 0;
+
   return (
     <div>
-      <div className="flex flex-wrap gap-2 mb-10">
-        {skills.map((skill, i) => (
-          <FadeInOnScroll key={skill} delay={i * 0.03}>
-            <span className="px-3 py-1.5 rounded border border-border/50 bg-surface/30 font-mono text-xs text-text-secondary hover:text-accent-active hover:border-accent-active/30 transition-all duration-300">
-              {skill}
-            </span>
-          </FadeInOnScroll>
+      <div className="space-y-8 mb-10">
+        {skillCategories.map((category) => (
+          <div key={category.label}>
+            <FadeInOnScroll>
+              <h3 className="text-sm font-mono text-accent-active/80 tracking-wide mb-3">
+                {category.label}
+              </h3>
+            </FadeInOnScroll>
+            <div className="flex flex-wrap gap-2">
+              {category.skills.map((skill) => {
+                const delay = globalIndex * 0.03;
+                globalIndex++;
+                return (
+                  <FadeInOnScroll key={skill} delay={delay}>
+                    <span className="px-3 py-1.5 rounded border border-border/50 bg-surface/30 font-mono text-xs text-text-secondary hover:text-accent-active hover:border-accent-active/30 transition-all duration-300">
+                      {skill}
+                    </span>
+                  </FadeInOnScroll>
+                );
+              })}
+            </div>
+          </div>
         ))}
       </div>
 
