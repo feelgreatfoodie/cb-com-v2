@@ -204,6 +204,7 @@ function ProjectCard({ project, delay }: { project: typeof currentlyBuilding[num
                     width={800}
                     height={400}
                     className="w-full h-auto"
+                    unoptimized
                   />
                 </div>
               </div>
