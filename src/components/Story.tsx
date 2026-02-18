@@ -53,6 +53,62 @@ function SectionHeading({
   );
 }
 
+/** Timeline span: 2004-2026 = 22 years. Bar width is proportional to duration. */
+const TIMELINE_START = 2004;
+const TIMELINE_END = 2026;
+const TIMELINE_SPAN = TIMELINE_END - TIMELINE_START;
+
+function getDuration(startYear: string, endYear: string): number {
+  const start = parseInt(startYear, 10);
+  const end = endYear === "present" ? TIMELINE_END : parseInt(endYear, 10);
+  return end - start;
+}
+
+function getBarWidthPercent(startYear: string, endYear: string): number {
+  const duration = getDuration(startYear, endYear);
+  return Math.max((duration / TIMELINE_SPAN) * 100, 8); // min ~8% so short stints are visible
+}
+
+function formatEndYear(endYear: string): string {
+  return endYear === "present" ? "Present" : endYear;
+}
+
+function DurationBar({
+  startYear,
+  endYear,
+  delay,
+}: {
+  startYear: string;
+  endYear: string;
+  delay: number;
+}) {
+  const widthPercent = getBarWidthPercent(startYear, endYear);
+
+  return (
+    <div className="mt-1.5 mb-1">
+      <span className="block text-[10px] font-mono text-text-secondary/60 mb-1 tracking-wide">
+        {startYear} — {formatEndYear(endYear)}
+      </span>
+      <motion.div
+        className="h-[3px] rounded-full max-w-[200px] sm:max-w-[240px] motion-safe:origin-left"
+        style={{
+          width: `${widthPercent}%`,
+          background:
+            "linear-gradient(90deg, var(--accent-active) 0%, rgba(111,195,223,0.30) 100%)",
+        }}
+        initial={{ scaleX: 0, opacity: 0 }}
+        whileInView={{ scaleX: 1, opacity: 1 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{
+          duration: 0.6,
+          delay: delay + 0.15,
+          ease: "easeOut",
+        }}
+      />
+    </div>
+  );
+}
+
 function Timeline() {
   return (
     <div className="relative">
@@ -66,7 +122,7 @@ function Timeline() {
 
       <div className="space-y-12">
         {timeline.map((item, i) => (
-          <FadeInOnScroll key={item.year} delay={i * 0.05}>
+          <FadeInOnScroll key={`${item.year}-${item.title}`} delay={i * 0.05}>
             <div className="relative pl-10">
               {/* Dot */}
               <div className="absolute left-0 top-[7px] w-[15px] h-[15px] rounded-full border border-border bg-base flex items-center justify-center">
@@ -74,8 +130,13 @@ function Timeline() {
               </div>
 
               <span className="font-mono text-xs text-accent-active tracking-widest">
-                {item.year}
+                {item.year} — {formatEndYear(item.endYear)}
               </span>
+              <DurationBar
+                startYear={item.year}
+                endYear={item.endYear}
+                delay={i * 0.05}
+              />
               <h3 className="text-lg font-light mt-1 mb-2">{item.title}</h3>
               <p className="text-text-secondary font-light leading-relaxed text-sm max-w-xl">
                 {item.description}

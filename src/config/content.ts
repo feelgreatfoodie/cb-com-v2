@@ -27,54 +27,63 @@ export const hero = {
 export const timeline = [
   {
     year: "2004",
+    endYear: "2013",
     title: "Professional Poker",
     description:
       "A decade at the tables built pattern recognition, bankroll management, and the ability to read people under pressure. Every decision had real stakes.",
   },
   {
     year: "2013",
+    endYear: "2014",
     title: "Real Estate",
     description:
       "Transitioned into real estate, sharpening negotiation skills and learning to close complex, high-value deals with multiple stakeholders.",
   },
   {
     year: "2014",
+    endYear: "2016",
     title: "Verizon — District Sales Manager",
     description:
       "Led district-level sales teams, driving revenue targets and building a leadership playbook grounded in accountability and team development.",
   },
   {
     year: "2016",
+    endYear: "2018",
     title: "Dream Stay — Strategy & Operations Lead",
     description:
       "Scaled a hospitality technology company from the ground up, handling everything from pricing optimization to operations systems and revenue management.",
   },
   {
     year: "2018",
+    endYear: "2019",
     title: "Hack Reactor",
     description:
       "Immersive software engineering program. The pivot from business to code, formalized through one of the most rigorous bootcamps in the industry.",
   },
   {
     year: "2019",
+    endYear: "2021",
     title: "MightyHive — Data Scientist",
     description:
       "Entered the data world building ML models and analytics pipelines for enterprise clients, working at the intersection of media and measurement.",
   },
   {
     year: "2021",
+    endYear: "2025",
     title: "Monks — Sr. Data Engineer",
     description:
       "Scaled data infrastructure across global teams, designing pipelines and architectures that served billions of rows for Fortune 500 clients.",
   },
   {
     year: "2025",
+    endYear: "present",
     title: "Three Bears Data — Co-founder & Principal Architect",
     description:
       "Leading data architecture and AI strategy at the principal level, designing systems that bridge technical depth with business outcomes.",
   },
   {
     year: "2025",
+    endYear: "present",
     title: "Rezzed.ai — Founder & Principal Architect",
     description:
       "Building tools for developers who code with AI. Multi-agent orchestration, MCP servers, and developer workflow infrastructure.",
