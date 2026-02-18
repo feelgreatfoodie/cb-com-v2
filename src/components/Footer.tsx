@@ -26,6 +26,16 @@ export default function Footer() {
           {/* Links */}
           <div className="flex items-center gap-6">
             <a
+              href={siteConfig.rezzedai}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-secondary hover:text-accent-active transition-colors duration-300 font-mono text-xs tracking-wider"
+              aria-label="Rezzed.ai"
+            >
+              rezzed.ai
+            </a>
+
+            <a
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
