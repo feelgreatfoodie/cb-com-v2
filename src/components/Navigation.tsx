@@ -73,9 +73,9 @@ export default function Navigation() {
               <Image
                 src="/signature-white.png"
                 alt="Christian Bourlier"
-                width={160}
-                height={48}
-                className="h-[36px] w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+                width={320}
+                height={96}
+                className="h-[56px] w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
                 priority
               />
             </a>

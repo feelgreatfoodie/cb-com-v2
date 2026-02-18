@@ -394,16 +394,6 @@ export default function Evidence() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="px-6 sm:px-8 py-24 sm:py-32 bg-surface/20">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="What they say">
-            Signal
-          </SectionHeading>
-          <Testimonials />
-        </div>
-      </section>
-
       {/* Contact */}
       <section id="contact" className="px-6 sm:px-8 py-24 sm:py-32 bg-surface/20">
         <div className="mx-auto max-w-6xl">
@@ -414,5 +404,18 @@ export default function Evidence() {
         </div>
       </section>
     </div>
+  );
+}
+
+export function SignalSection() {
+  return (
+    <section className="px-6 sm:px-8 py-24 sm:py-32 bg-surface/20">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading subtitle="What they say">
+          Signal
+        </SectionHeading>
+        <Testimonials />
+      </div>
+    </section>
   );
 }

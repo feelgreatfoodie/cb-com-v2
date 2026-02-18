@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Surface from "@/components/Surface";
 import Story from "@/components/Story";
-import Evidence from "@/components/Evidence";
+import Evidence, { SignalSection } from "@/components/Evidence";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -10,6 +10,7 @@ export default function Home() {
       <Navigation />
       <main className="depth-gradient">
         <Surface />
+        <SignalSection />
         <Story />
         <Evidence />
       </main>
