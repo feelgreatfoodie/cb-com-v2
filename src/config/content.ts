@@ -13,7 +13,7 @@ export const siteConfig = {
 
 export const hero = {
   name: "Christian Bourlier",
-  subtitle: "Architect · Strategist · Operator",
+  subtitle: "AI Architect · Strategist · Operator",
   tagline: "The Architecture of Leverage",
   metrics: [
     { value: "10", label: "yrs reading rooms" },
@@ -106,9 +106,9 @@ export const currentlyBuilding = [
 ];
 
 export const competencies = [
-  "Data Architecture",
-  "AI+HI Solutions",
+  "AI + HI Solutions",
   "Executive Relationships",
+  "Solutions Architecture",
   "Rapid Prototyping",
   "Team Building",
   "Business Strategy",

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#0D0D0F" rx="64"/>
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- 5x5 grid: centers at 80, 172, 264, 356, 448 -->
+  <!-- Row 1: ● ● ● · . -->
+  <circle cx="80" cy="80" r="18" fill="#6FC3DF" opacity="0.68"/>
+  <circle cx="172" cy="80" r="18" fill="#6FC3DF" opacity="0.72"/>
+  <circle cx="264" cy="80" r="18" fill="#6FC3DF" opacity="0.68"/>
+  <circle cx="356" cy="80" r="18" fill="#6FC3DF" opacity="0.24"/>
+  <!-- Row 2: ● . . ● . -->
+  <circle cx="80" cy="172" r="18" fill="#6FC3DF" opacity="0.80"/>
+  <circle cx="356" cy="172" r="18" fill="#6FC3DF" opacity="0.68"/>
+  <!-- Row 3: ● ● ● · . (center of emanation) -->
+  <circle cx="80" cy="264" r="18" fill="#6FC3DF" opacity="0.86"/>
+  <circle cx="172" cy="264" r="18" fill="#6FC3DF" opacity="1.0" filter="url(#glow)"/>
+  <circle cx="264" cy="264" r="18" fill="#6FC3DF" opacity="0.86"/>
+  <circle cx="356" cy="264" r="18" fill="#6FC3DF" opacity="0.29"/>
+  <!-- Row 4: ● . ● . . -->
+  <circle cx="80" cy="356" r="18" fill="#6FC3DF" opacity="0.80"/>
+  <circle cx="264" cy="356" r="18" fill="#6FC3DF" opacity="0.80"/>
+  <!-- Row 5: ● . . ● · -->
+  <circle cx="80" cy="448" r="18" fill="#6FC3DF" opacity="0.68"/>
+  <circle cx="356" cy="448" r="18" fill="#6FC3DF" opacity="0.60"/>
+  <circle cx="448" cy="448" r="18" fill="#6FC3DF" opacity="0.20"/>
+</svg>
