@@ -88,6 +88,7 @@ export const currentlyBuilding = [
       "Tools for developers who code with AI. Multi-agent orchestration, MCP servers, and developer workflow infrastructure — the platform behind CacheBash and the wider arsenal.",
     url: "https://rezzed.ai",
     status: "Active" as const,
+    previewImage: "/rezzed-preview.svg",
   },
   {
     name: "CacheBash",
@@ -95,6 +96,7 @@ export const currentlyBuilding = [
       "Async dispatch for AI agents — monitor, message, and respond from your phone. An MCP server with 16 custom tools bridging mobile to desktop CLI.",
     url: "https://rezzed.ai/cachebash",
     status: "Active" as const,
+    previewImage: "/cachebash-preview.svg",
   },
   {
     name: "OptiMeasure",
@@ -102,6 +104,7 @@ export const currentlyBuilding = [
       "Cookieless attribution engine using Marketing Mix Modeling. Privacy-first measurement for $10M+ media allocation decisions without third-party cookies.",
     url: "https://optimeasure.io",
     status: "Active" as const,
+    previewImage: "/optimeasure.png",
   },
 ];
 
