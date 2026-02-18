@@ -7,6 +7,7 @@ export const siteConfig = {
   email: "christianbourlier@gmail.com",
   linkedin: "https://linkedin.com/in/christianbourlier",
   medium: "https://medium.com/@christianbourlier",
+  rezzedai: "https://rezzed.ai",
 };
 
 export const hero = {
@@ -81,19 +82,25 @@ export const timeline = [
 
 export const currentlyBuilding = [
   {
-    name: "OptiMeasure",
+    name: "Rezzed.ai",
     description:
-      "Cookieless attribution platform built on privacy-first measurement methodology. Moving beyond third-party cookies with statistical modeling and server-side signals.",
+      "Tools for developers who code with AI. Multi-agent orchestration, MCP servers, and developer workflow infrastructure — the platform behind CacheBash and the wider arsenal.",
+    url: "https://rezzed.ai",
+    status: "Active" as const,
   },
   {
     name: "CacheBash",
     description:
-      "Async dispatch infrastructure for AI agent networks. A coordination layer that enables multi-agent systems to communicate, delegate, and persist state across sessions.",
+      "Async dispatch for AI agents — monitor, message, and respond from your phone. An MCP server with 16 custom tools bridging mobile to desktop CLI.",
+    url: "https://rezzed.ai/cachebash",
+    status: "Active" as const,
   },
   {
-    name: "AI-Augmentation Portal",
+    name: "OptiMeasure",
     description:
-      "An internal platform for orchestrating AI-augmented workflows, bridging human intelligence with AI capabilities through structured delegation and feedback loops.",
+      "Cookieless attribution engine using Marketing Mix Modeling. Privacy-first measurement for $10M+ media allocation decisions without third-party cookies.",
+    url: "https://optimeasure.io",
+    status: "Active" as const,
   },
 ];
 

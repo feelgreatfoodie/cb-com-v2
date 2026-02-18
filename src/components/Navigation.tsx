@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { navLinks } from "@/config/content";
 
 export default function Navigation() {
@@ -67,9 +68,16 @@ export default function Navigation() {
           <div className="flex h-16 items-center justify-between">
             <a
               href="#"
-              className="font-mono text-sm tracking-wider text-text-secondary hover:text-accent-active transition-colors duration-300"
+              className="hover:opacity-80 transition-opacity duration-300"
             >
-              CB
+              <Image
+                src="/signature-white.png"
+                alt="Christian Bourlier"
+                width={80}
+                height={24}
+                className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+                priority
+              />
             </a>
 
             {/* Desktop nav */}

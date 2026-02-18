@@ -89,18 +89,43 @@ function Timeline() {
 function CurrentlyBuilding() {
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {currentlyBuilding.map((project, i) => (
-        <FadeInOnScroll key={project.name} delay={i * 0.1}>
-          <div className="group p-6 rounded-lg border border-border/50 bg-surface/30 hover:border-accent-active/30 transition-all duration-500">
-            <h3 className="text-lg font-light mb-3 group-hover:text-accent-active transition-colors duration-300">
-              {project.name}
-            </h3>
+      {currentlyBuilding.map((project, i) => {
+        const Card = (
+          <div className="group p-6 rounded-lg border border-border/50 bg-surface/30 hover:border-accent-active/30 transition-all duration-500 h-full">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-lg font-light group-hover:text-accent-active transition-colors duration-300">
+                {project.name}
+              </h3>
+              <span className="flex items-center gap-1.5 text-xs font-mono text-accent-active/70">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-active/60 animate-pulse" />
+                {project.status}
+              </span>
+            </div>
             <p className="text-text-secondary text-sm font-light leading-relaxed">
               {project.description}
             </p>
+            {project.url && (
+              <div className="mt-4 flex items-center gap-1 text-xs font-mono text-accent-active/50 group-hover:text-accent-active transition-colors duration-300">
+                <span>{project.url.replace('https://', '')}</span>
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </div>
+            )}
           </div>
-        </FadeInOnScroll>
-      ))}
+        );
+        return (
+          <FadeInOnScroll key={project.name} delay={i * 0.1}>
+            {project.url ? (
+              <a href={project.url} target="_blank" rel="noopener noreferrer" className="block h-full">
+                {Card}
+              </a>
+            ) : (
+              Card
+            )}
+          </FadeInOnScroll>
+        );
+      })}
     </div>
   );
 }
