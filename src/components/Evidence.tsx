@@ -114,10 +114,24 @@ function Skills() {
 function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [direction, setDirection] = useState(1);
+
+  const goNext = () => {
+    setDirection(1);
+    setPaused(true);
+    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const goPrev = () => {
+    setDirection(-1);
+    setPaused(true);
+    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
   useEffect(() => {
     if (paused) return;
     const timer = setInterval(() => {
+      setDirection(1);
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
     }, 6000);
     return () => clearInterval(timer);
@@ -134,9 +148,9 @@ function Testimonials() {
         <AnimatePresence mode="wait">
           <motion.blockquote
             key={activeIndex}
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: direction > 0 ? 24 : -24 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
+            exit={{ opacity: 0, x: direction > 0 ? -24 : 24 }}
             transition={{ duration: 0.4 }}
             className="absolute inset-0"
           >
@@ -167,20 +181,42 @@ function Testimonials() {
         </AnimatePresence>
       </div>
 
-      {/* Dots */}
-      <div className="flex gap-2 mt-8">
-        {testimonials.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setActiveIndex(i)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              i === activeIndex
-                ? "bg-accent-active w-6"
-                : "bg-border hover:bg-text-secondary w-2"
-            }`}
-            aria-label={`View testimonial ${i + 1}`}
-          />
-        ))}
+      {/* Dots + arrows */}
+      <div className="flex items-center gap-4 mt-8">
+        <button
+          onClick={goPrev}
+          className="p-1.5 rounded text-text-secondary/40 hover:text-text-secondary transition-colors duration-200"
+          aria-label="Previous testimonial"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+
+        <div className="flex gap-2">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => { setPaused(true); setActiveIndex(i); }}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === activeIndex
+                  ? "bg-accent-active w-6"
+                  : "bg-border hover:bg-text-secondary w-2"
+              }`}
+              aria-label={`View testimonial ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={goNext}
+          className="p-1.5 rounded text-text-secondary/40 hover:text-text-secondary transition-colors duration-200"
+          aria-label="Next testimonial"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
       </div>
     </div>
   );
