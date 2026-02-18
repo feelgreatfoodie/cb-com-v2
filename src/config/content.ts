@@ -8,6 +8,7 @@ export const siteConfig = {
   linkedin: "https://linkedin.com/in/christianbourlier",
   medium: "https://medium.com/@christianbourlier",
   rezzedai: "https://rezzed.ai",
+  github: "https://github.com/feelgreatfoodie",
 };
 
 export const hero = {

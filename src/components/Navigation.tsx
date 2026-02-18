@@ -65,7 +65,7 @@ export default function Navigation() {
         }`}
       >
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-20 items-center justify-between">
             <a
               href="#"
               className="hover:opacity-80 transition-opacity duration-300"
@@ -73,9 +73,9 @@ export default function Navigation() {
               <Image
                 src="/signature-white.png"
                 alt="Christian Bourlier"
-                width={80}
-                height={24}
-                className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+                width={240}
+                height={72}
+                className="h-[54px] w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
                 priority
               />
             </a>
