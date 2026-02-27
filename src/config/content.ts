@@ -23,7 +23,7 @@ export const hero = {
   description:
     "I architect the production infrastructure where LLMs perform reliable, governed work within enterprise constraints. Author of CacheBash — a 39-tool MCP server powering multi-agent orchestration with identity isolation, policy-gated tool use, and full audit coverage.",
   metrics: [
-    { value: "3", label: "Production AI Systems" },
+    { value: "4", label: "Production AI Systems" },
     { value: "39", label: "MCP Tools (9 Domains)" },
     { value: "100%", label: "Audit Coverage" },
     { value: "0", label: "Uncontained Failures" },
@@ -90,6 +90,15 @@ export const systems = [
     status: "Production" as const,
   },
 ];
+
+export const portfolioSystem = {
+  name: "Bourlier.ai",
+  slug: "constraint-aware-deployment",
+  description: "Production testbed for constraint-aware deployment. Rate limiting, validation, audit logging, and structured output handling.",
+  stack: ["Next.js", "Gemini", "Vercel"],
+  url: "https://bourlier.ai",
+  status: "Production" as const,
+};
 
 export const instrumentation = {
   title: "// instrumentation",
@@ -163,6 +172,7 @@ export const skillCategories = [
       "GitHub Actions CI/CD",
       "Event-Driven Architecture",
       "Firestore Transactions",
+      "REST APIs",
     ],
   },
 ];

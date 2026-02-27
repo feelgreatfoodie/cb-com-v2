@@ -56,7 +56,7 @@ function SectionHeading({
 
 export function SignalSection() {
   return (
-    <section className="px-6 sm:px-8 py-20 sm:py-28 bg-surface/20">
+    <section className="px-6 sm:px-8 py-16 sm:py-20 bg-surface/20">
       <div className="mx-auto max-w-4xl">
         <FadeInOnScroll>
           <div className="border-l-2 border-accent-active/30 pl-8 py-2">
@@ -91,12 +91,12 @@ function Packages() {
             href={`https://www.npmjs.com/package/@rezzed.ai/${pkg.name}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-3 rounded-lg border border-border/40 bg-surface/20 hover:border-accent-active/30 transition-all duration-300"
+            className="group p-3 rounded-lg border border-border/60 bg-surface/30 hover:border-accent-active/40 transition-all duration-300"
           >
             <span className="block font-mono text-xs text-accent-active/70 group-hover:text-accent-active transition-colors mb-1">
               @rezzed.ai/{pkg.name}
             </span>
-            <span className="block text-xs text-text-secondary/60 font-light">
+            <span className="block text-xs text-text-secondary/75 font-light">
               {pkg.description}
             </span>
           </a>
@@ -170,7 +170,7 @@ function Timeline() {
               <span className="font-mono text-xs text-accent-active/80 tracking-widest">
                 {item.year} &mdash; {item.endYear === "present" ? "Present" : item.endYear}
               </span>
-              <h3 className="text-base font-light mt-1 mb-1">{item.title}</h3>
+              <h3 className="text-base font-light mt-1 mb-1 text-text-secondary">{item.title}</h3>
               <p className="text-text-secondary font-light leading-relaxed text-sm max-w-xl">
                 {item.description}
               </p>
@@ -263,7 +263,7 @@ function Contact() {
 export default function Evidence() {
   return (
     <div>
-      <section id="evidence" className="px-6 sm:px-8 py-24 sm:py-32">
+      <section id="evidence" className="px-6 sm:px-8 py-20 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <SectionHeading subtitle="Verifiable proof">Evidence</SectionHeading>
           <FadeInOnScroll>
@@ -278,14 +278,14 @@ export default function Evidence() {
         </div>
       </section>
 
-      <section id="writing" className="px-6 sm:px-8 py-24 sm:py-32 bg-surface/10">
+      <section id="writing" className="px-6 sm:px-8 py-20 sm:py-24 bg-surface/10">
         <div className="mx-auto max-w-6xl">
           <SectionHeading subtitle="Technical writing">Writing</SectionHeading>
           <Writing />
         </div>
       </section>
 
-      <section id="contact" className="px-6 sm:px-8 py-24 sm:py-32">
+      <section id="contact" className="px-6 sm:px-8 py-20 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <SectionHeading>{contact.heading}</SectionHeading>
           <Contact />
