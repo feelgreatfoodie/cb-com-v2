@@ -1,18 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --base: #1a1714;
-  --surface: #2a2520;
-  --layer-2: #161310;
-  --layer-3: #131110;
-  --text-primary: #e8dcc8;
-  --text-secondary: #8a7e6e;
-  --accent-active: #6fc3df;
-  --accent-warm: #d4a050;
-  --border: #3a352f;
+  --base: #161819;
+  --surface: #1e2124;
+  --layer-2: #131516;
+  --layer-3: #101213;
+  --text-primary: #e2e8f0;
+  --text-secondary: #7a8694;
+  --accent-active: #5bb8d4;
+  --accent-warm: #5bb8d4;
+  --border: #2a2f35;
 }
 
-/* Depth gradient — darkens from Surface → Story → Evidence */
 .depth-gradient {
   background: linear-gradient(
     180deg,
@@ -24,7 +23,6 @@
   );
 }
 
-/* Ambient background — slow-drifting gradient layers */
 @keyframes ambient-drift-1 {
   0% { transform: translate(0, 0) scale(1); }
   100% { transform: translate(1%, -0.5%) scale(1.01); }
@@ -37,25 +35,23 @@
 
 .ambient-layer-1 {
   background:
-    radial-gradient(ellipse 80% 60% at 20% 40%, rgba(42, 37, 32, 0.25) 0%, transparent 100%),
-    radial-gradient(ellipse 60% 80% at 80% 60%, rgba(42, 37, 32, 0.15) 0%, transparent 100%);
+    radial-gradient(ellipse 80% 60% at 20% 40%, rgba(30, 33, 36, 0.25) 0%, transparent 100%),
+    radial-gradient(ellipse 60% 80% at 80% 60%, rgba(30, 33, 36, 0.15) 0%, transparent 100%);
   animation: ambient-drift-1 45s ease-in-out infinite alternate;
 }
 
 .ambient-layer-2 {
   background:
-    radial-gradient(ellipse 70% 50% at 60% 30%, rgba(42, 37, 32, 0.12) 0%, transparent 100%),
-    radial-gradient(ellipse 50% 70% at 30% 70%, rgba(42, 37, 32, 0.10) 0%, transparent 100%);
+    radial-gradient(ellipse 70% 50% at 60% 30%, rgba(30, 33, 36, 0.12) 0%, transparent 100%),
+    radial-gradient(ellipse 50% 70% at 30% 70%, rgba(30, 33, 36, 0.10) 0%, transparent 100%);
   animation: ambient-drift-2 50s ease-in-out infinite alternate;
 }
 
-/* Radar ping — availability signal */
 @keyframes radar-ping {
   0% { transform: scale(1); opacity: 0.6; }
   100% { transform: scale(3); opacity: 0; }
 }
 
-/* Scroll invitation line */
 @keyframes scroll-line {
   0%   { transform: scaleY(0); opacity: 0; }
   10%  { opacity: 0.4; }
@@ -63,27 +59,17 @@
   100% { transform: scaleY(1); opacity: 0; }
 }
 
-/* Timeline traveling light */
 @keyframes timeline-light {
-  0% {
-    top: -30%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    top: 100%;
-    opacity: 0;
-  }
+  0% { top: -30%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
 }
 
 @theme inline {
   --color-base: var(--base);
   --color-surface: var(--surface);
+  --color-layer-3: var(--layer-3);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-accent-active: var(--accent-active);
@@ -93,13 +79,9 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--base);
@@ -110,24 +92,11 @@ body {
 }
 
 ::selection {
-  background: rgba(111, 195, 223, 0.25);
+  background: rgba(91, 184, 212, 0.25);
   color: var(--text-primary);
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--base);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--base); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
