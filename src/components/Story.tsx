@@ -194,7 +194,7 @@ export default function Story() {
             <div className="mt-6 rounded-lg border border-border/40 bg-surface/20 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-1">
-                  <h3 className="text-base font-light">{portfolioSystem.name}</h3>
+                  <h3 className="text-lg font-light group-hover:text-accent-active transition-colors duration-300">{portfolioSystem.name}</h3>
                   <span className="flex items-center gap-1.5 text-xs font-mono text-accent-active/70">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent-active/60 animate-pulse" />
                     {portfolioSystem.status}
