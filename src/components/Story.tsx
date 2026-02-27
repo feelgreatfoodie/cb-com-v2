@@ -54,7 +54,7 @@ function SystemCard({
 }) {
   return (
     <FadeInOnScroll delay={delay}>
-      <div className="group rounded-lg border border-border/50 bg-surface/30 hover:border-accent-active/30 transition-all duration-500">
+      <div className="group h-full rounded-lg border border-border/50 bg-surface/30 hover:border-accent-active/30 transition-all duration-500">
         <div className="p-6">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-lg font-light group-hover:text-accent-active transition-colors duration-300">

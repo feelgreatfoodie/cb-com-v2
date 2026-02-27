@@ -91,7 +91,7 @@ function Packages() {
             href={`https://www.npmjs.com/package/@rezzed.ai/${pkg.name}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-3 rounded-lg border border-border/60 bg-surface/30 hover:border-accent-active/40 transition-all duration-300"
+            className="group block h-full p-3 rounded-lg border border-border/60 bg-surface/30 hover:border-accent-active/40 transition-all duration-300"
           >
             <span className="block font-mono text-xs text-accent-active/70 group-hover:text-accent-active transition-colors mb-1">
               @rezzed.ai/{pkg.name}
