@@ -104,7 +104,7 @@ export default function Surface() {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex flex-col justify-center px-6 sm:px-8"
+      className="relative min-h-[85vh] flex flex-col justify-center px-6 sm:px-8"
     >
       {/* Ambient background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -124,22 +124,6 @@ export default function Surface() {
             Welcome back.
           </motion.span>
         )}
-
-        {/* Availability badge with radar ping */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-12"
-        >
-          <span className="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-text-secondary">
-            <span className="relative flex items-center justify-center w-4 h-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-active" />
-              <span className="absolute w-1.5 h-1.5 rounded-full bg-accent-active animate-[radar-ping_4s_ease-out_infinite]" />
-            </span>
-            {hero.availability}
-          </span>
-        </motion.div>
 
         {/* Name */}
         <motion.h1

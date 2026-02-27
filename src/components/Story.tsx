@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { systems, instrumentation, approach } from "@/config/content";
+import { systems, portfolioSystem, instrumentation, approach } from "@/config/content";
 
 function FadeInOnScroll({
   children,
@@ -179,7 +179,7 @@ function Methodology() {
 export default function Story() {
   return (
     <div>
-      <section id="systems" className="px-6 sm:px-8 py-24 sm:py-32">
+      <section id="systems" className="px-6 sm:px-8 py-20 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <SectionHeading subtitle="What's running in production">
             Systems
@@ -189,11 +189,43 @@ export default function Story() {
               <SystemCard key={system.name} system={system} delay={i * 0.1} />
             ))}
           </div>
+
+          <FadeInOnScroll delay={0.3}>
+            <div className="mt-6 rounded-lg border border-border/40 bg-surface/20 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-1">
+                  <h3 className="text-base font-light">{portfolioSystem.name}</h3>
+                  <span className="flex items-center gap-1.5 text-xs font-mono text-accent-active/70">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-active/60 animate-pulse" />
+                    {portfolioSystem.status}
+                  </span>
+                </div>
+                <p className="font-mono text-xs text-text-secondary/60 tracking-wide mb-2">{portfolioSystem.slug}</p>
+                <p className="text-text-secondary text-sm font-light leading-relaxed">{portfolioSystem.description}</p>
+              </div>
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <div className="flex flex-wrap gap-1.5">
+                  {portfolioSystem.stack.map((tech) => (
+                    <span key={tech} className="px-2 py-0.5 rounded border border-border/40 bg-surface/50 font-mono text-[11px] text-text-secondary/70">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <a href={portfolioSystem.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-mono text-accent-active/50 hover:text-accent-active transition-colors duration-300">
+                  <span>bourlier.ai</span>
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </FadeInOnScroll>
+
           <Instrumentation />
         </div>
       </section>
 
-      <section id="approach" className="px-6 sm:px-8 py-24 sm:py-32">
+      <section id="approach" className="px-6 sm:px-8 py-20 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <SectionHeading>{approach.title}</SectionHeading>
           <Methodology />
