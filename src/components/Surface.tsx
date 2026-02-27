@@ -8,7 +8,7 @@ function parseMetric(value: string) {
   const match = value.match(/^(\d+)(.*)$/);
   return match
     ? { num: parseInt(match[1]), suffix: match[2] }
-    : { num: 0, suffix: value };
+    : { num: null, suffix: value };
 }
 
 function CountUpMetric({
@@ -21,9 +21,15 @@ function CountUpMetric({
   delay?: number;
 }) {
   const { num, suffix } = parseMetric(value);
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState(num === null ? value : "0");
 
   useEffect(() => {
+    if (num === null) {
+      // Non-numeric value — fade in as-is
+      const timeout = setTimeout(() => setDisplay(value), delay);
+      return () => clearTimeout(timeout);
+    }
+
     const timeout = setTimeout(() => {
       const duration = 800;
       const start = performance.now();
@@ -31,19 +37,18 @@ function CountUpMetric({
         const elapsed = now - start;
         const progress = Math.min(elapsed / duration, 1);
         const eased = 1 - (1 - progress) * (1 - progress);
-        setDisplay(Math.round(eased * num));
+        setDisplay(Math.round(eased * num) + suffix);
         if (progress < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
     }, delay);
     return () => clearTimeout(timeout);
-  }, [num, delay]);
+  }, [num, suffix, value, delay]);
 
   return (
     <div className="flex flex-col">
       <span className="text-3xl sm:text-4xl font-light text-accent-active font-mono tabular-nums">
         {display}
-        {suffix}
       </span>
       <span className="text-sm text-text-secondary mt-1 tracking-wide">
         {label}
@@ -73,29 +78,27 @@ const letterVariants = {
 export default function Surface() {
   const [isReturning, setIsReturning] = useState(false);
 
-  // B1: Time-of-day palette shift
   useEffect(() => {
     const hour = new Date().getHours();
     const root = document.documentElement;
 
     if (hour >= 6 && hour < 12) {
-      root.style.setProperty("--base", "#1b1815");
-      root.style.setProperty("--layer-2", "#171410");
-      root.style.setProperty("--layer-3", "#141210");
+      root.style.setProperty("--base", "#181a1f");
+      root.style.setProperty("--layer-2", "#14161a");
+      root.style.setProperty("--layer-3", "#101215");
     } else if (hour >= 18 || hour < 6) {
-      root.style.setProperty("--base", "#181719");
-      root.style.setProperty("--layer-2", "#141316");
-      root.style.setProperty("--layer-3", "#111015");
+      root.style.setProperty("--base", "#151719");
+      root.style.setProperty("--layer-2", "#111316");
+      root.style.setProperty("--layer-3", "#0e1013");
     }
   }, []);
 
-  // B2: Return visitor memory
   useEffect(() => {
-    const hasVisited = localStorage.getItem("cb-visited");
+    const hasVisited = localStorage.getItem("bourlier-visited");
     if (hasVisited) {
       setIsReturning(true);
     }
-    localStorage.setItem("cb-visited", new Date().toISOString());
+    localStorage.setItem("bourlier-visited", new Date().toISOString());
   }, []);
 
   return (
@@ -103,7 +106,7 @@ export default function Surface() {
       id="about"
       className="relative min-h-screen flex flex-col justify-center px-6 sm:px-8"
     >
-      {/* Ambient background — slow-drifting gradient layers */}
+      {/* Ambient background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 ambient-layer-1" />
         <div className="absolute inset-0 ambient-layer-2" />
@@ -138,7 +141,7 @@ export default function Surface() {
           </span>
         </motion.div>
 
-        {/* Name — letter stagger entrance */}
+        {/* Name */}
         <motion.h1
           className="text-4xl sm:text-5xl lg:text-6xl font-extralight tracking-tight leading-tight mb-6"
           variants={containerVariants}
@@ -157,32 +160,42 @@ export default function Surface() {
           ))}
         </motion.h1>
 
-        {/* Three identities */}
+        {/* Identity */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="font-mono text-sm tracking-[0.2em] uppercase text-accent-active mb-6"
+          className="font-mono text-sm tracking-[0.2em] uppercase text-accent-active mb-4"
         >
           {hero.subtitle}
         </motion.p>
 
-        {/* Tagline — premise */}
+        {/* Tagline */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-xl sm:text-2xl font-light text-text-secondary max-w-2xl mb-16 leading-relaxed"
+          className="text-xl sm:text-2xl font-light text-text-secondary max-w-2xl mb-6 leading-relaxed"
         >
           {hero.tagline}
         </motion.p>
 
-        {/* Metrics — count-up */}
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-sm sm:text-base font-light text-text-secondary/80 max-w-2xl mb-16 leading-relaxed"
+        >
+          {hero.description}
+        </motion.p>
+
+        {/* Metrics bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="flex flex-wrap gap-12 sm:gap-16 mb-24"
+          className="flex flex-wrap gap-8 sm:gap-12 lg:gap-16 mb-24"
         >
           {hero.metrics.map((metric, i) => (
             <CountUpMetric
@@ -194,14 +207,14 @@ export default function Surface() {
           ))}
         </motion.div>
 
-        {/* Scroll invitation — extending vertical line */}
+        {/* Scroll invitation */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <a
-            href="#journey"
+            href="#systems"
             className="group inline-flex flex-col items-start gap-4 text-sm text-text-secondary hover:text-text-primary transition-colors duration-300"
           >
             <span className="tracking-wide">{hero.scrollCta}</span>
@@ -210,7 +223,6 @@ export default function Surface() {
         </motion.div>
       </div>
 
-      {/* Depth cue — threshold line at bottom of viewport */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[40%] h-px bg-gradient-to-r from-transparent via-accent-active/10 to-transparent" />
     </section>
   );

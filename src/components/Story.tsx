@@ -1,15 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import Image from "next/image";
-import {
-  timeline,
-  currentlyBuilding,
-  competencies,
-  approach,
-  openTo,
-} from "@/config/content";
+import { motion } from "framer-motion";
+import { systems, instrumentation, approach } from "@/config/content";
 
 function FadeInOnScroll({
   children,
@@ -53,360 +45,133 @@ function SectionHeading({
   );
 }
 
-/** Timeline span: 2004-2026 = 22 years. Bar width is proportional to duration. */
-const TIMELINE_START = 2004;
-const TIMELINE_END = 2026;
-const TIMELINE_SPAN = TIMELINE_END - TIMELINE_START;
-
-function getDuration(startYear: string, endYear: string): number {
-  const start = parseInt(startYear, 10);
-  const end = endYear === "present" ? TIMELINE_END : parseInt(endYear, 10);
-  return end - start;
-}
-
-function getBarWidthPercent(startYear: string, endYear: string): number {
-  const duration = getDuration(startYear, endYear);
-  return Math.max((duration / TIMELINE_SPAN) * 100, 8); // min ~8% so short stints are visible
-}
-
-function formatEndYear(endYear: string): string {
-  return endYear === "present" ? "Present" : endYear;
-}
-
-function DurationBar({
-  startYear,
-  endYear,
+function SystemCard({
+  system,
   delay,
 }: {
-  startYear: string;
-  endYear: string;
+  system: (typeof systems)[number];
   delay: number;
 }) {
-  const widthPercent = getBarWidthPercent(startYear, endYear);
-
-  return (
-    <div className="mt-1.5 mb-1">
-      <span className="block text-[10px] font-mono text-text-secondary/60 mb-1 tracking-wide">
-        {startYear} — {formatEndYear(endYear)}
-      </span>
-      <motion.div
-        className="h-[3px] rounded-full max-w-[200px] sm:max-w-[240px] motion-safe:origin-left"
-        style={{
-          width: `${widthPercent}%`,
-          background:
-            "linear-gradient(90deg, var(--accent-active) 0%, rgba(111,195,223,0.30) 100%)",
-        }}
-        initial={{ scaleX: 0, opacity: 0 }}
-        whileInView={{ scaleX: 1, opacity: 1 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{
-          duration: 0.6,
-          delay: delay + 0.15,
-          ease: "easeOut",
-        }}
-      />
-    </div>
-  );
-}
-
-function Timeline() {
-  return (
-    <div className="relative">
-      {/* Vertical line */}
-      <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border">
-        {/* Traveling light */}
-        <div className="absolute inset-x-0 top-0 bottom-0 overflow-hidden">
-          <div className="absolute left-0 w-full animate-[timeline-light_8s_ease-in-out_infinite] bg-gradient-to-b from-transparent via-accent-active/40 to-transparent h-[30%]" />
-        </div>
-      </div>
-
-      <div className="space-y-12">
-        {timeline.map((item, i) => (
-          <FadeInOnScroll key={`${item.year}-${item.title}`} delay={i * 0.05}>
-            <div className="relative pl-10">
-              {/* Dot */}
-              <div className="absolute left-0 top-[7px] w-[15px] h-[15px] rounded-full border border-border bg-base flex items-center justify-center">
-                <div className="w-[5px] h-[5px] rounded-full bg-accent-active/60" />
-              </div>
-
-              <span className="font-mono text-xs text-accent-active tracking-widest">
-                {item.year} — {formatEndYear(item.endYear)}
-              </span>
-              <DurationBar
-                startYear={item.year}
-                endYear={item.endYear}
-                delay={i * 0.05}
-              />
-              <h3 className="text-lg font-light mt-1 mb-2">{item.title}</h3>
-              <p className="text-text-secondary font-light leading-relaxed text-sm max-w-xl">
-                {item.description}
-              </p>
-            </div>
-          </FadeInOnScroll>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function ProjectCard({ project, delay }: { project: typeof currentlyBuilding[number]; delay: number }) {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <FadeInOnScroll delay={delay}>
-      <div
-        className="group rounded-lg border border-border/50 bg-surface/30 hover:border-accent-active/30 transition-all duration-500 cursor-pointer"
-        onClick={() => setExpanded(!expanded)}
-      >
+      <div className="group rounded-lg border border-border/50 bg-surface/30 hover:border-accent-active/30 transition-all duration-500">
         <div className="p-6">
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-2">
             <h3 className="text-lg font-light group-hover:text-accent-active transition-colors duration-300">
-              {project.name}
+              {system.name}
             </h3>
             <span className="flex items-center gap-1.5 text-xs font-mono text-accent-active/70">
               <span className="w-1.5 h-1.5 rounded-full bg-accent-active/60 animate-pulse" />
-              {project.status}
+              {system.status}
             </span>
           </div>
-          <p className="text-text-secondary text-sm font-light leading-relaxed">
-            {project.description}
+
+          <p className="font-mono text-xs text-text-secondary/60 tracking-wide mb-4">
+            {system.slug}
           </p>
-          {project.url && (
+
+          <p className="text-text-secondary text-sm font-light leading-relaxed mb-4">
+            {system.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2 mb-4">
+            {system.stack.map((tech) => (
+              <span
+                key={tech}
+                className="px-2 py-0.5 rounded border border-border/40 bg-surface/50 font-mono text-[11px] text-text-secondary/70"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <ul className="space-y-1.5 mb-4">
+            {system.details.map((detail) => (
+              <li
+                key={detail}
+                className="flex items-start gap-2 text-sm text-text-secondary/80 font-light"
+              >
+                <span className="text-accent-active/40 mt-1 text-xs">&#9656;</span>
+                {detail}
+              </li>
+            ))}
+          </ul>
+
+          {system.url && (
             <a
-              href={project.url}
+              href={system.url}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="mt-4 inline-flex items-center gap-1 text-xs font-mono text-accent-active/50 hover:text-accent-active transition-colors duration-300"
+              className="inline-flex items-center gap-1 text-xs font-mono text-accent-active/50 hover:text-accent-active transition-colors duration-300"
             >
-              <span>{project.url.replace('https://', '')}</span>
+              <span>{system.url.replace("https://", "").replace("www.", "")}</span>
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
               </svg>
             </a>
           )}
         </div>
-
-        <AnimatePresence>
-          {expanded && project.previewImage && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              <div className="px-6 pb-6">
-                <div className="rounded-md overflow-hidden border border-border/30 bg-base/50">
-                  <Image
-                    src={project.previewImage}
-                    alt={`${project.name} preview`}
-                    width={800}
-                    height={400}
-                    className="w-full h-auto"
-                    unoptimized
-                  />
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </FadeInOnScroll>
   );
 }
 
-function CurrentlyBuilding() {
+function Instrumentation() {
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {currentlyBuilding.map((project, i) => (
-        <ProjectCard key={project.name} project={project} delay={i * 0.1} />
-      ))}
-    </div>
-  );
-}
-
-function Competencies() {
-  const [prefersReduced, setPrefersReduced] = useState(false);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(wrapperRef, { once: true });
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReduced(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setPrefersReduced(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-
-  if (prefersReduced) {
-    return (
-      <div className="flex flex-wrap gap-3">
-        {competencies.map((comp) => (
-          <span
-            key={comp}
-            className="px-4 py-2 rounded-full border border-border/60 text-sm font-light text-text-secondary"
-          >
-            {comp}
-          </span>
-        ))}
-      </div>
-    );
-  }
-
-  const cx = 200;
-  const cy = 200;
-  const radius = 130;
-  const satRadius = 40;
-  const centerRadius = 44;
-
-  const positions = competencies.map((_, i) => {
-    const angle = (Math.PI * 2 * i) / competencies.length - Math.PI / 2;
-    return {
-      x: cx + radius * Math.cos(angle),
-      y: cy + radius * Math.sin(angle),
-    };
-  });
-
-  const nodeColors = [
-    "#6FC3DF",
-    "#D4A050",
-    "#6FC3DF",
-    "#D4A050",
-    "#6FC3DF",
-    "#D4A050",
-  ];
-
-  return (
-    <div ref={wrapperRef}>
-      <svg
-        viewBox="0 0 400 400"
-        className="mx-auto w-full max-w-md sm:max-w-lg"
-        role="img"
-        aria-label="Core competencies radial diagram"
-      >
-        {/* Connecting lines */}
-        {positions.map((pos, i) => (
-          <motion.line
-            key={`line-${i}`}
-            x1={cx}
-            y1={cy}
-            x2={pos.x}
-            y2={pos.y}
-            stroke="#6FC3DF"
-            strokeOpacity={0.25}
-            strokeWidth={1}
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={isInView ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
-            transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
-          />
-        ))}
-
-        {/* Center node */}
-        <motion.circle
-          cx={cx}
-          cy={cy}
-          r={centerRadius}
-          fill="#1a1714"
-          stroke="#6FC3DF"
-          strokeWidth={1.5}
-          initial={{ scale: 0, opacity: 0 }}
-          animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          style={{ transformOrigin: `${cx}px ${cy}px` }}
-        />
-        <motion.text
-          x={cx}
-          y={cy + 4}
-          textAnchor="middle"
-          fill="#e8dcc8"
-          fontSize={9}
-          fontFamily="var(--font-jetbrains-mono), monospace"
-          letterSpacing="0.12em"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          CORE
-        </motion.text>
-
-        {/* Satellite nodes */}
-        {positions.map((pos, i) => (
-          <motion.g
-            key={`sat-${i}`}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-            transition={{ delay: 0.5 + i * 0.1, duration: 0.4, ease: "backOut" }}
-            style={{ transformOrigin: `${pos.x}px ${pos.y}px` }}
-          >
-            <circle
-              cx={pos.x}
-              cy={pos.y}
-              r={satRadius}
-              fill="#1a1714"
-              stroke={nodeColors[i]}
-              strokeWidth={1.5}
-            />
-            <text
-              x={pos.x}
-              y={pos.y}
-              textAnchor="middle"
-              fill="#e8dcc8"
-              fontSize={7}
-              fontFamily="var(--font-jetbrains-mono), monospace"
-            >
-              {competencies[i].split(" ").length > 1 ? (
-                competencies[i].split(" ").map((word, wi, arr) => (
-                  <tspan
-                    key={wi}
-                    x={pos.x}
-                    dy={wi === 0 ? -(((arr.length - 1) * 11) / 2) + 4 : 11}
-                  >
-                    {word}
-                  </tspan>
-                ))
-              ) : (
-                <tspan x={pos.x} dy={4}>{competencies[i]}</tspan>
-              )}
-            </text>
-          </motion.g>
-        ))}
-      </svg>
-    </div>
-  );
-}
-
-function Approach() {
-  return (
-    <FadeInOnScroll>
-      <div className="p-8 rounded-lg border border-border/50 bg-surface/20">
-        <h3 className="text-lg font-light mb-4">{approach.title}</h3>
-        <p className="font-mono text-accent-active text-sm tracking-wide mb-4">
-          {approach.philosophy}
-        </p>
-        <p className="text-text-secondary font-light leading-relaxed text-sm">
-          {approach.description}
-        </p>
+    <FadeInOnScroll delay={0.2}>
+      <div className="mt-12 p-6 rounded-lg border border-border/30 bg-layer-3/50">
+        <h4 className="font-mono text-sm text-accent-active/70 tracking-wide mb-4">
+          {instrumentation.title}
+        </h4>
+        <ul className="space-y-2">
+          {instrumentation.items.map((item) => (
+            <li key={item} className="font-mono text-xs text-text-secondary/70 leading-relaxed">
+              <span className="text-text-secondary/40 mr-2">//</span>
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
     </FadeInOnScroll>
   );
 }
 
-function OpenTo() {
+function Methodology() {
   return (
-    <div className="grid gap-6 sm:grid-cols-2">
-      {openTo.map((item, i) => (
-        <FadeInOnScroll key={item.role} delay={i * 0.1}>
-          <div className="p-6 rounded-lg border-l-2 border-l-accent-warm/60 border-y border-r border-y-border/30 border-r-border/30 bg-surface/20 hover:border-l-accent-warm transition-all duration-500">
-            <h3 className="text-base font-normal text-accent-warm mb-2">
-              {item.role}
-            </h3>
-            <p className="text-text-secondary text-sm font-light leading-relaxed">
-              {item.description}
-            </p>
+    <div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+        {approach.methodology.map((item, i) => (
+          <FadeInOnScroll key={item.step} delay={i * 0.05}>
+            <div className="text-center p-4 rounded-lg border border-border/30 bg-surface/20">
+              <span className="block font-mono text-xs text-accent-active/50 mb-2">
+                {item.step}
+              </span>
+              <span className="block text-sm font-mono tracking-wider text-text-primary mb-1">
+                {item.label}
+              </span>
+              <span className="block text-xs text-text-secondary/60 font-light">
+                {item.description}
+              </span>
+            </div>
+          </FadeInOnScroll>
+        ))}
+      </div>
+
+      <FadeInOnScroll delay={0.3}>
+        <div className="p-6 rounded-lg border-2 border-accent-active/20 bg-surface/10">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="font-mono text-xs text-accent-active/60 tracking-wider">
+              {approach.governance.tag}
+            </span>
+            <h4 className="text-base font-light text-text-primary">
+              {approach.governance.title}
+            </h4>
           </div>
-        </FadeInOnScroll>
-      ))}
+          <p className="text-sm text-text-secondary font-light leading-relaxed">
+            {approach.governance.description}
+          </p>
+        </div>
+      </FadeInOnScroll>
     </div>
   );
 }
@@ -414,48 +179,24 @@ function OpenTo() {
 export default function Story() {
   return (
     <div>
-      {/* Journey / Timeline */}
-      <section id="journey" className="px-6 sm:px-8 py-24 sm:py-32">
+      <section id="systems" className="px-6 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="Risk. Revenue. Reality.">
-            Journey
+          <SectionHeading subtitle="What's running in production">
+            Systems
           </SectionHeading>
-          <Timeline />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {systems.map((system, i) => (
+              <SystemCard key={system.name} system={system} delay={i * 0.1} />
+            ))}
+          </div>
+          <Instrumentation />
         </div>
       </section>
 
-      {/* Approach */}
-      <section className="px-6 sm:px-8 py-16">
+      <section id="approach" className="px-6 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl">
-          <Approach />
-        </div>
-      </section>
-
-      {/* The Lab */}
-      <section id="lab" className="px-6 sm:px-8 py-24 sm:py-32">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="Active R&D">
-            The Lab
-          </SectionHeading>
-          <CurrentlyBuilding />
-        </div>
-      </section>
-
-      {/* Capabilities */}
-      <section className="px-6 sm:px-8 py-16">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeading>Capabilities</SectionHeading>
-          <Competencies />
-        </div>
-      </section>
-
-      {/* Open To */}
-      <section className="px-6 sm:px-8 py-24 sm:py-32">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeading subtitle="How I deploy leverage">
-            Open To
-          </SectionHeading>
-          <OpenTo />
+          <SectionHeading>{approach.title}</SectionHeading>
+          <Methodology />
         </div>
       </section>
     </div>

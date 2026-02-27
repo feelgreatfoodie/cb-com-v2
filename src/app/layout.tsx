@@ -17,18 +17,17 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Christian Bourlier — Architect, Strategist, Operator",
+  title: "Christian Bourlier — AI Systems Architect",
   description:
-    "A decade reading rooms. Twenty years closing deals. Eight years building the systems that connect the two. The architecture of leverage.",
+    "I architect production AI systems where autonomous agents perform reliable, governed work at scale. 39-tool MCP server. Multi-agent orchestration. Full audit coverage.",
   keywords: [
-    "data architect",
-    "AI strategist",
-    "solutions architect",
-    "operator",
-    "GCP",
-    "BigQuery",
-    "machine learning",
-    "AI infrastructure",
+    "AI systems architect",
+    "MCP server",
+    "multi-agent orchestration",
+    "Claude Code",
+    "production AI systems",
+    "AI governance",
+    "CacheBash",
     "Christian Bourlier",
   ],
   authors: [{ name: "Christian Bourlier" }],
@@ -36,37 +35,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://christianbourlier.com",
-    title: "Christian Bourlier — Architect, Strategist, Operator",
-    description:
-      "A decade reading rooms. Twenty years closing deals. Eight years building the systems that connect the two.",
-    siteName: "Christian Bourlier",
+    url: "https://bourlier.ai",
+    title: "Christian Bourlier — AI Systems Architect",
+    description: "Bounded AI systems that ship. 3 production systems. 39 MCP tools. 100% audit coverage. 0 uncontained failures.",
+    siteName: "bourlier.ai",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Christian Bourlier — Architect, Strategist, Operator",
-    description:
-      "The architecture of leverage. Risk. Revenue. Reality.",
-    creator: "@christianbourlier",
+    title: "Christian Bourlier — AI Systems Architect",
+    description: "Bounded AI systems that ship. Production AI infrastructure with governance, safety, and verifiable evidence.",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 },
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="dark">
       <head>
@@ -77,27 +63,26 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Christian Bourlier",
-              url: "https://christianbourlier.com",
-              email: "christianbourlier@gmail.com",
-              jobTitle: "Principal Architect & AI Strategist",
+              url: "https://bourlier.ai",
+              email: "christian@bourlier.ai",
+              jobTitle: "AI Systems Architect",
               sameAs: [
                 "https://linkedin.com/in/christianbourlier",
                 "https://medium.com/@christianbourlier",
+                "https://github.com/rezzedai",
               ],
               knowsAbout: [
-                "Data Architecture",
-                "AI Strategy",
-                "Machine Learning",
+                "AI Systems Architecture",
+                "MCP Server Development",
+                "Multi-Agent Orchestration",
                 "Google Cloud Platform",
-                "BigQuery",
+                "Production AI Governance",
               ],
             }),
           }}
         />
       </head>
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
-      >
+      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
