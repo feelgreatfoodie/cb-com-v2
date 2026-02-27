@@ -96,7 +96,7 @@ function Packages() {
             <span className="block font-mono text-xs text-accent-active/70 group-hover:text-accent-active transition-colors mb-1">
               @rezzed.ai/{pkg.name}
             </span>
-            <span className="block text-xs text-text-secondary/75 font-light">
+            <span className="block text-xs text-text-secondary font-light">
               {pkg.description}
             </span>
           </a>
