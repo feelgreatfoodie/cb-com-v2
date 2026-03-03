@@ -159,7 +159,7 @@ export default function Surface() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-xl sm:text-2xl font-light text-text-secondary max-w-2xl mb-6 leading-relaxed"
+          className="text-xl sm:text-2xl font-light text-text-primary max-w-2xl mb-6 leading-relaxed"
         >
           {hero.tagline}
         </motion.p>
@@ -169,7 +169,7 @@ export default function Surface() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-sm sm:text-base font-light text-text-secondary max-w-2xl mb-16 leading-relaxed"
+          className="text-sm sm:text-base font-light text-text-primary max-w-2xl mb-16 leading-relaxed"
         >
           {hero.description}
         </motion.p>
