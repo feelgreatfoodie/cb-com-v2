@@ -169,7 +169,8 @@ export default function Surface() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-sm sm:text-base text-white/80 max-w-2xl mb-16 leading-relaxed"
+          className="text-sm sm:text-base max-w-2xl mb-16 leading-relaxed"
+          style={{ color: "rgba(200, 210, 220, 0.9)" }}
         >
           {hero.description}
         </motion.p>
