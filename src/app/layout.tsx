@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Christian Bourlier — AI Systems Architect",
   description:
-    "I architect production AI systems where autonomous agents perform reliable, governed work at scale. 39-tool MCP server. Multi-agent orchestration. Full audit coverage.",
+    "I architect production AI systems where autonomous agents perform reliable, governed work at scale. 58-tool MCP server. Multi-agent orchestration. Full audit coverage.",
   keywords: [
     "AI systems architect",
     "MCP server",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://bourlier.ai",
     title: "Christian Bourlier — AI Systems Architect",
-    description: "Bounded AI systems that ship. 3 production systems. 39 MCP tools. 100% audit coverage. 0 uncontained failures.",
+    description: "Bounded AI systems that ship. 3 production systems. 58 MCP tools. 100% audit coverage. 0 uncontained failures.",
     siteName: "bourlier.ai",
   },
   twitter: {

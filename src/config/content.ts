@@ -7,7 +7,7 @@ export const siteConfig = {
   name: "Christian Bourlier",
   title: "Christian Bourlier — AI Systems Architect",
   description:
-    "I architect production AI systems where autonomous agents perform reliable, governed work at scale. 39-tool MCP server. Multi-agent orchestration. Full audit coverage. Building on Claude.",
+    "I architect production AI systems where autonomous agents perform reliable, governed work at scale. 58-tool MCP server. Multi-agent orchestration. Full audit coverage. Building on Claude.",
   url: "https://bourlier.ai",
   email: "christian@bourlier.ai",
   linkedin: "https://linkedin.com/in/christianbourlier",
@@ -21,10 +21,10 @@ export const hero = {
   subtitle: "AI Systems Architect",
   tagline: "Bounded AI systems that ship.",
   description:
-    "I architect the production infrastructure where LLMs perform reliable, governed work within enterprise constraints. Author of CacheBash — a 39-tool MCP server powering multi-agent orchestration with identity isolation, policy-gated tool use, and full audit coverage.",
+    "I architect the production infrastructure where LLMs perform reliable, governed work within enterprise constraints. Author of CacheBash — a 58-tool MCP server powering multi-agent orchestration with identity isolation, policy-gated tool use, and full audit coverage.",
   metrics: [
     { value: "4", label: "Production AI Systems" },
-    { value: "39", label: "MCP Tools (9 Domains)" },
+    { value: "58", label: "MCP Tools" },
     { value: "100%", label: "Audit Coverage" },
     { value: "0", label: "Uncontained Failures" },
     { value: "6mo→6wk", label: "Modeling Latency Reduction" },
@@ -46,7 +46,7 @@ export const systems = [
     name: "CacheBash",
     slug: "mcp-relay + persistent-task-state",
     description:
-      "Production MCP server for multi-agent coordination on Claude Code. 39 tool endpoints across 9 operational domains: task orchestration, relay messaging, session management, sprint execution, identity/key management, observability, distributed tracing, program state, and autonomous execution.",
+      "Production MCP server with 58 tool endpoints for multi-agent coordination on Claude Code: transactional task claiming, relay messaging with dead letter containment, persistent agent memory, and autonomous fleet operations across concurrent AI sessions.",
     stack: ["Cloud Run", "Firestore", "TypeScript", "MCP Protocol"],
     details: [
       "Transactional task claiming with dead-letter containment",
@@ -207,7 +207,7 @@ export const timeline = [
   {
     year: "2019",
     endYear: "2021",
-    title: "Data Scientist \u2192 Technical Solutions Engineer \u2014 MightyHive",
+    title: "Technical Solutions Engineer \u2192 Data Scientist \u2014 MightyHive",
     description:
       "Predictive modeling with clean room data. Refactored legacy systems into production microservices \u2014 10x throughput improvement.",
   },
