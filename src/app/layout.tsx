@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { KonamiOverlay } from "@/components/KonamiOverlay";
+import { CursorTrail } from "@/components/CursorTrail";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { ChatWidget } from "@/components/ChatWidget";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,9 +21,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bourlier.ai"),
   title: "Christian Bourlier — AI Systems Architect",
   description:
-    "I architect production AI systems where autonomous agents perform reliable, governed work at scale. 58-tool MCP server. Multi-agent orchestration. Full audit coverage.",
+    "I architect production AI systems where autonomous agents perform reliable, governed work at scale. 60+ tool MCP server. Multi-agent orchestration. Full audit coverage.",
   keywords: [
     "AI systems architect",
     "MCP server",
@@ -32,12 +37,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Christian Bourlier" }],
   creator: "Christian Bourlier",
+  alternates: {
+    canonical: "https://bourlier.ai",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://bourlier.ai",
     title: "Christian Bourlier — AI Systems Architect",
-    description: "Bounded AI systems that ship. 3 production systems. 58 MCP tools. 100% audit coverage. 0 uncontained failures.",
+    description: "Bounded AI systems that ship. 3 production systems. 60+ MCP tools. 100% audit coverage. 0 uncontained failures.",
     siteName: "bourlier.ai",
   },
   twitter: {
@@ -81,8 +89,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             }),
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `setTimeout(function(){console.log('%cBom dia from Christian Bourlier.%c\\n\\nWelcome to the AI systems architect's workspace. The Grid runs here — bounded autonomous agents, full audit trails, zero uncontained failures. Drop me a line if you\\'d like to explore how production AI systems work at scale.','font-size:16px;font-weight:bold;color:#5bb8d4;','font-size:13px;color:#7a8694;')},2000);`,
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+        <ScrollProgress />
+        <KonamiOverlay />
+        <CursorTrail />
+        <ChatWidget />
         {children}
       </body>
     </html>
