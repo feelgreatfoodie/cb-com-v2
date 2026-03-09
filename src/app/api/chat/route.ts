@@ -17,7 +17,7 @@ const chatSchema = z.object({
 // In-memory rate limiter with pruning (note: resets on serverless cold start)
 const rateMap = new Map<string, number[]>();
 const isDev = process.env.NODE_ENV === 'development';
-const RATE_LIMIT = isDev ? 100 : 15;
+const RATE_LIMIT = isDev ? 100 : 30;
 const RATE_WINDOW_MS = isDev ? 5 * 60 * 1000 : 60 * 60 * 1000; // 5min dev, 1hr prod
 const MAX_ENTRIES = 1000;
 
