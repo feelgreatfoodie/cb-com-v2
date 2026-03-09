@@ -91,7 +91,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `setTimeout(function(){console.log('%cBom dia from Christian Bourlier.%c\\n\\nWelcome to the AI systems architect's workspace. The Grid runs here — bounded autonomous agents, full audit trails, zero uncontained failures. Drop me a line if you\\'d like to explore how production AI systems work at scale.','font-size:16px;font-weight:bold;color:#5bb8d4;','font-size:13px;color:#7a8694;')},2000);`,
+            __html: `setTimeout(function(){console.log('%cBom dia from Christian Bourlier.%c\\n\\nWelcome to the AI systems architect\\'s workspace. The Grid runs here — bounded autonomous agents, full audit trails, zero uncontained failures. Drop me a line if you\\'d like to explore how production AI systems work at scale.','font-size:16px;font-weight:bold;color:#5bb8d4;','font-size:13px;color:#7a8694;')},2000);`,
           }}
         />
       </head>
