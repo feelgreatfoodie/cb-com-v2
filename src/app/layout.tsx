@@ -5,6 +5,8 @@ import "./globals.css";
 import { KonamiOverlay } from "@/components/KonamiOverlay";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ChatWidget } from "@/components/ChatWidget";
+import { PostHogProvider } from "./PostHogProvider";
+import PostHogPageView from "./PostHogPageView";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -89,10 +91,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
       <body className={`${GeistSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        <ScrollProgress />
-        <KonamiOverlay />
-        <ChatWidget />
-        {children}
+        <PostHogProvider>
+          <PostHogPageView />
+          <ScrollProgress />
+          <KonamiOverlay />
+          <ChatWidget />
+          {children}
+        </PostHogProvider>
       </body>
     </html>
   );
