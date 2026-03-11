@@ -90,7 +90,7 @@ export function ProblemSolver() {
       >
         <label
           htmlFor="challenge-input"
-          className="block text-[15px] font-semibold mb-3"
+          className="block text-sm font-light mb-3"
           style={{ color: 'var(--text-primary)' }}
         >
           Describe your challenge — Answered NOW by AI
@@ -191,7 +191,7 @@ export function ProblemSolver() {
             }}
           >
             <h3
-              className="text-[15px] font-semibold mb-3"
+              className="text-sm font-light mb-3"
               style={{ color: 'var(--accent-active)' }}
             >
               Diagnosis
@@ -215,7 +215,7 @@ export function ProblemSolver() {
             }}
           >
             <h3
-              className="text-[15px] font-semibold mb-3"
+              className="text-sm font-light mb-3"
               style={{ color: 'var(--accent-active)' }}
             >
               Proposed Approach
@@ -239,7 +239,7 @@ export function ProblemSolver() {
             }}
           >
             <h3
-              className="text-[15px] font-semibold mb-3"
+              className="text-sm font-light mb-3"
               style={{ color: 'var(--accent-active)' }}
             >
               Timeline
@@ -263,7 +263,7 @@ export function ProblemSolver() {
             }}
           >
             <h3
-              className="text-[15px] font-semibold mb-3"
+              className="text-sm font-light mb-3"
               style={{ color: 'var(--accent-active)' }}
             >
               Relevant Experience
