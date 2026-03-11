@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { testimonials_tier1, companyLogos } from "@/config/content";
-import Image from "next/image";
 
 function FadeInOnScroll({
   children,
@@ -34,7 +33,7 @@ export default function SocialProof() {
         <div className="space-y-8 mb-16">
           {testimonials_tier1.map((testimonial, i) => (
             <FadeInOnScroll key={testimonial.author} delay={i * 0.1}>
-              <div className="border-l-2 border-accent-active/20 pl-8 py-4 bg-surface/10 rounded-r">
+              <div className="border-l-2 border-accent-active/20 pl-6 sm:pl-8 py-4 bg-surface/10 rounded-r sm:max-w-[50%]">
                 <p className="text-base font-light leading-relaxed text-text-primary mb-4 italic">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
@@ -66,28 +65,21 @@ export default function SocialProof() {
           ))}
         </div>
 
-        {/* Company Logos Strip */}
+        {/* Company Logos — equal containers, 2 rows */}
         <FadeInOnScroll delay={0.3}>
           <div className="border-t border-border/30 pt-12">
-            <p className="font-mono text-xs text-secondary/60 tracking-widest uppercase mb-6 text-center">
+            <p className="font-mono text-xs text-secondary/60 tracking-widest uppercase mb-8 text-center">
               Worked with teams at
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3">
               {companyLogos.map((logo) => (
                 <div
                   key={logo.name}
-                  className="relative h-8 w-auto opacity-60 hover:opacity-80 transition-opacity duration-300"
-                  style={{
-                    filter: "grayscale(1) brightness(0.7) invert(0.9)",
-                  }}
+                  className="flex items-center justify-center h-10 sm:h-12 rounded-lg border border-border/30 bg-surface/20 hover:border-accent-active/20 hover:bg-surface/40 transition-all duration-300"
                 >
-                  <Image
-                    src={logo.path}
-                    alt={`${logo.name} logo`}
-                    height={32}
-                    width={120}
-                    className="h-8 w-auto object-contain"
-                  />
+                  <span className="text-[10px] sm:text-xs font-medium tracking-wide text-text-secondary/50">
+                    {logo.name}
+                  </span>
                 </div>
               ))}
             </div>

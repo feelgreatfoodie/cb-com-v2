@@ -47,7 +47,7 @@ function CountUpMetric({
 
   return (
     <div className="flex flex-col">
-      <span className="text-3xl sm:text-4xl font-light text-accent-active font-mono tabular-nums">
+      <span className="text-2xl sm:text-3xl lg:text-4xl font-light text-accent-active font-mono tabular-nums">
         {display}
       </span>
       <span className="text-sm text-text-secondary mt-1 tracking-wide">
@@ -203,7 +203,7 @@ export default function Surface() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="flex flex-wrap gap-8 sm:gap-12 lg:gap-16 mb-24"
+          className="grid grid-cols-2 gap-6 sm:flex sm:flex-wrap sm:gap-12 lg:gap-16 mb-24"
         >
           {hero.metrics.map((metric, i) => (
             <CountUpMetric

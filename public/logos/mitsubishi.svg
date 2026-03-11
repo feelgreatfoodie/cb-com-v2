@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="currentColor">
-  <path d="M100 5L70 25l30 20 30-20L100 5zm0 10l15 10-15 10-15-10 15-10z"/>
-  <path d="M70 25L40 45l30 20 30-20-30-20zm0 10l15 10-15 10-15-10 15-10z"/>
-  <path d="M130 25l-30 20 30 20 30-20-30-20zm0 10l15 10-15 10-15-10 15-10z"/>
-</svg>
+<svg fill="#e2e8f0" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Mitsubishi</title><path d="M8 22.38H0l4-6.92h8zm8 0h8l-4-6.92h-8zm0-13.84l-4-6.92-4 6.92 4 6.92Z"/></svg>

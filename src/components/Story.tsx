@@ -55,7 +55,7 @@ function SystemCard({
   return (
     <FadeInOnScroll delay={delay}>
       <div className="group h-full rounded-lg border border-border/50 bg-surface/30 hover:border-accent-active/30 transition-all duration-500">
-        <div className="p-6">
+        <div className="p-6 h-full flex flex-col">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-lg font-light group-hover:text-accent-active transition-colors duration-300">
               {system.name}
@@ -70,11 +70,11 @@ function SystemCard({
             {system.slug}
           </p>
 
-          <p className="text-text-secondary text-sm font-light leading-relaxed mb-4">
+          <p className="text-text-secondary text-sm font-light leading-relaxed mb-4 flex-1">
             {system.description}
           </p>
 
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-2 mb-4">
             {system.stack.map((tech) => (
               <span
                 key={tech}
@@ -90,7 +90,7 @@ function SystemCard({
               href={system.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-mono text-accent-active/50 hover:text-accent-active transition-colors duration-300"
+              className="inline-flex items-center gap-1 text-xs font-mono text-accent-active/50 hover:text-accent-active transition-colors duration-300 mt-auto"
             >
               <span>{system.url.replace("https://", "").replace("www.", "")}</span>
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

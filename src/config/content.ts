@@ -72,7 +72,6 @@ export const companyLogos = [
   { name: "Google", path: "/logos/google.svg" },
   { name: "Samsung", path: "/logos/samsung.svg" },
   { name: "TechSmith", path: "/logos/techsmith.svg" },
-  { name: "MetLife", path: "/logos/metlife.svg" },
   { name: "Spotify", path: "/logos/spotify.svg" },
   { name: "Square", path: "/logos/square.svg" },
   { name: "Sprint", path: "/logos/sprint.svg" },
@@ -83,7 +82,7 @@ export const systems = [
     name: "CacheBash",
     slug: "mcp-relay + persistent-task-state",
     description:
-      "Production MCP server with 60+ tool endpoints for multi-agent coordination on Claude Code.",
+      "Production MCP server with 60+ tool endpoints for multi-agent coordination on Claude Code. Handles task dispatch, relay messaging, persistent state, sprint orchestration, and fleet telemetry across distributed agent sessions.",
     stack: ["Cloud Run", "Firestore", "TypeScript"],
     url: "https://www.npmjs.com/package/@rezzed.ai/cachebash",
     github: "https://github.com/rezzedai",
@@ -93,7 +92,7 @@ export const systems = [
     name: "Rezzed.ai",
     slug: "bounded-multi-agent-orchestration",
     description:
-      "Role-specialized multi-agent system where 10+ LLM-powered agents operate within identity-scoped boundaries, static context budgets, and pre-tool-use policy gates.",
+      "Role-specialized multi-agent system where 10+ LLM-powered agents operate within identity-scoped boundaries, static context budgets, and pre-tool-use policy gates with constitutional safety governance.",
     stack: ["Claude Code", "Vertex AI", "MCP", "Cloud Run"],
     url: "https://rezzed.ai",
     github: "https://github.com/rezzedai",
@@ -103,7 +102,7 @@ export const systems = [
     name: "OptiMeasure",
     slug: "privacy-first-ai-measurement",
     description:
-      "Cookieless marketing attribution engine generating channel-level and tactic-level budget reallocation recommendations. Compressed spend-recommendation modeling latency from 6 months to 6 weeks.",
+      "Cookieless marketing attribution engine generating channel-level and tactic-level budget recommendations. Compressed modeling latency from 6 months to 6 weeks. Serving 3 enterprise clients in active contracts.",
     stack: ["Python", "Vertex AI", "BigQuery"],
     url: "https://optimeasure.io",
     status: "Production" as const,
@@ -167,7 +166,7 @@ export const skillCategories_v2 = [
   {
     label: "Cloud & Infrastructure",
     skills: [
-      "GCP (Cloud Run, BigQuery, Firestore)",
+      "GCP (Cloud Run, BQ, Firestore)",
       "Terraform",
       "Event-Driven Architecture",
       "GitHub Actions CI/CD",
@@ -251,22 +250,7 @@ export const testimonials_tier2 = [
 ];
 
 // Tier 3 testimonials — compact quotes (badge-style)
-export const testimonials_tier3 = [
-  {
-    quote:
-      "He doesn't shy away from unfamiliar territories and can quickly master new areas and translate that knowledge into solutions that deliver real business impact.",
-    author: "Ahmed Tarek M.",
-    title: "Director of Data Science, Monks",
-    relationship: "Peer",
-  },
-  {
-    quote:
-      "Highly skilled senior data engineer with strong expertise in pipelining complex data sources, GCP, BigQuery and the broader Google ecosystem. Technical excellence and great team spirit.",
-    author: "Brianna Mersey",
-    title: "VP Data",
-    relationship: "Direct Manager",
-  },
-];
+export const testimonials_tier3: typeof testimonials_tier2 = [];
 
 export const articles = [
   {

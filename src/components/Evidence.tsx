@@ -61,7 +61,7 @@ function Packages() {
 
   return (
     <div>
-      {/* Featured top 3 packages with npm badges */}
+      {/* Featured top 3 packages */}
       <div className="grid gap-4 mb-6">
         {featured.map((pkg, i) => (
           <FadeInOnScroll key={pkg.name} delay={i * 0.1}>
@@ -71,15 +71,10 @@ function Packages() {
               rel="noopener noreferrer"
               className="group block p-4 rounded-lg border border-border/60 bg-surface/30 hover:border-accent-active/40 transition-all duration-300"
             >
-              <div className="flex items-start justify-between gap-4 mb-2">
+              <div className="mb-2">
                 <span className="font-mono text-sm text-accent-active/70 group-hover:text-accent-active transition-colors">
                   @rezzed.ai/{pkg.name}
                 </span>
-                <img
-                  src={`https://img.shields.io/npm/dm/@rezzed.ai/${pkg.name}.svg?style=flat-square&color=5bb8d4`}
-                  alt={`${pkg.name} downloads`}
-                  className="h-5"
-                />
               </div>
               <span className="block text-xs text-text-secondary font-light">
                 {pkg.description}
@@ -130,13 +125,13 @@ function Skills() {
                 {category.label}
               </h3>
             </FadeInOnScroll>
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {category.skills.map((skill) => {
                 const delay = globalIndex * 0.03;
                 globalIndex++;
                 return (
                   <FadeInOnScroll key={skill} delay={delay}>
-                    <span className="px-3 py-1.5 rounded border border-border/50 bg-surface/30 font-mono text-xs text-text-secondary hover:text-accent-active hover:border-accent-active/30 transition-all duration-300">
+                    <span className="block px-3 py-1.5 rounded-full border border-border/50 bg-surface/30 text-xs text-text-secondary hover:text-accent-active hover:border-accent-active/30 transition-all duration-300 whitespace-nowrap text-center">
                       {skill}
                     </span>
                   </FadeInOnScroll>
@@ -164,7 +159,7 @@ function Skills() {
       <div className="mt-16 space-y-6">
         {testimonials_tier2.map((testimonial, i) => (
           <FadeInOnScroll key={testimonial.author} delay={i * 0.1}>
-            <div className="border-l border-accent-active/20 pl-6 py-2">
+            <div className="border-l border-accent-active/20 pl-6 py-2 sm:max-w-[50%]">
               <p className="text-sm font-light leading-relaxed text-text-secondary mb-3 italic">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
@@ -188,7 +183,7 @@ function Skills() {
       <div className="mt-8 flex flex-wrap gap-3">
         {testimonials_tier3.map((testimonial, i) => (
           <FadeInOnScroll key={testimonial.author} delay={i * 0.1}>
-            <div className="px-4 py-3 rounded border border-border/40 bg-surface/20 max-w-md">
+            <div className="px-4 py-3 rounded border border-border/40 bg-surface/20 sm:max-w-[50%]">
               <p className="text-xs font-light text-text-secondary/80 mb-2 italic">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
@@ -244,17 +239,15 @@ function Writing() {
             rel="noopener noreferrer"
             className="group flex items-start sm:items-center justify-between p-5 rounded-lg border border-border/30 hover:border-accent-active/30 bg-surface/20 transition-all duration-300 gap-4"
           >
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <span className="block text-sm font-light text-text-primary group-hover:text-accent-active transition-colors mb-2">
                 {article.title}
               </span>
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-mono text-text-secondary/50">{article.date}</span>
-                <div className="flex gap-2">
-                  {article.tags.map((tag) => (
-                    <span key={tag} className="text-[10px] font-mono text-text-secondary/40 tracking-wide">{tag}</span>
-                  ))}
-                </div>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span className="text-xs text-text-secondary/50">{article.date}</span>
+                {article.tags.map((tag) => (
+                  <span key={tag} className="text-[10px] text-text-secondary/40 tracking-wide">{tag}</span>
+                ))}
               </div>
             </div>
             <svg className="w-4 h-4 text-text-secondary group-hover:text-accent-active group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -281,14 +274,14 @@ function Contact() {
       <FadeInOnScroll>
         <p className="text-text-secondary font-light text-lg mb-8 max-w-xl">{contact.description}</p>
       </FadeInOnScroll>
-      <div className="flex flex-wrap gap-6">
+      <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-6">
         {contact.links.map((link, i) => (
           <FadeInOnScroll key={link.label} delay={i * 0.1}>
             <a
               href={link.url}
               target={link.url.startsWith("mailto:") ? undefined : "_blank"}
               rel={link.url.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-              className="group flex items-center gap-3 px-5 py-3 rounded-lg border border-border/40 bg-surface/20 hover:border-accent-active/30 transition-all duration-300"
+              className="group flex items-center justify-center sm:justify-start gap-3 px-5 py-3 rounded-lg border border-border/40 bg-surface/20 hover:border-accent-active/30 transition-all duration-300"
             >
               {link.label === "GitHub" && (
                 <svg className="w-4 h-4 text-text-secondary group-hover:text-accent-active transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" /></svg>
