@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { KonamiOverlay } from "@/components/KonamiOverlay";
-import { CursorTrail } from "@/components/CursorTrail";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ChatWidget } from "@/components/ChatWidget";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500"],
-  display: "swap",
-});
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -95,10 +88,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           }}
         />
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className={`${GeistSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <ScrollProgress />
         <KonamiOverlay />
-        <CursorTrail />
         <ChatWidget />
         {children}
       </body>

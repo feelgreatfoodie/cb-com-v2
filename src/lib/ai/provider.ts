@@ -167,6 +167,9 @@ TESTIMONIAL:
 — Puneet Gangrade, Data Science & Engineering Lead, Monks (Direct Manager)
 
 WRITING (Medium articles):
+- "The Architecture Review I'd Give Your Multi-Agent System" (2026-03-08)
+- "I Built an MCP Server. Here's What the Docs Don't Tell You." (2026-03-07)
+- "Notes from the Grid: The Telemetry Nobody's Building for Multi-Agent AI" (2026-03-05)
 - "The Only Part of My AI Stack That Needed Coffee Was Also the Bottleneck" (2026-02-25)
 - "CacheBash: An MCP Server That Lets Your AI Sessions Talk to Each Other" (2026-02-25)
 - "Your AI Agent Has Amnesia. You're the Cure." (2026-02-23)
@@ -297,7 +300,7 @@ class MockProvider implements AIProvider {
 }
 
 export function getAIProvider(): AIProvider {
-  const apiKey = process.env.GOOGLE_AI_API_KEY;
+  const apiKey = process.env.GOOGLE_AI_API_KEY?.replace(/^["']+|["']+$/g, '').trim();
   if (apiKey) {
     return new GeminiProvider(apiKey);
   }

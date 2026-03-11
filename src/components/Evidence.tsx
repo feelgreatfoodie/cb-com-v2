@@ -44,7 +44,7 @@ function SectionHeading({
 }) {
   return (
     <FadeInOnScroll className="mb-16">
-      <h2 className="text-3xl sm:text-4xl font-extralight tracking-tight mb-3">
+      <h2 className="text-3xl sm:text-4xl font-light tracking-tight mb-3">
         {children}
       </h2>
       {subtitle && (

@@ -75,7 +75,7 @@
   --color-accent-active: var(--accent-active);
   --color-accent-warm: var(--accent-warm);
   --color-border: var(--border);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-jetbrains-mono);
 }
 
@@ -86,7 +86,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--base);
   color: var(--text-primary);
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
