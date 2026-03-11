@@ -127,7 +127,7 @@ export default function Surface() {
 
         {/* Name */}
         <motion.h1
-          className="text-4xl sm:text-5xl lg:text-6xl font-extralight tracking-tight leading-tight mb-6"
+          className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight leading-tight mb-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -169,11 +169,34 @@ export default function Surface() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-sm sm:text-base max-w-2xl mb-16 leading-relaxed"
+          className="text-sm sm:text-base max-w-2xl mb-6 leading-relaxed"
           style={{ color: "rgba(200, 210, 220, 0.9)" }}
         >
           {hero.description}
         </motion.p>
+
+        {/* Contact links */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+          className="flex gap-6 mb-16"
+        >
+          <a
+            href="mailto:christian@bourlier.ai"
+            className="text-sm text-text-secondary hover:text-accent-active transition-colors duration-200"
+          >
+            christian@bourlier.ai
+          </a>
+          <a
+            href="https://linkedin.com/in/christianbourlier"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-text-secondary hover:text-accent-active transition-colors duration-200"
+          >
+            LinkedIn
+          </a>
+        </motion.div>
 
         {/* Metrics bar */}
         <motion.div
