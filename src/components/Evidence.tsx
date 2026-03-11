@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import {
-  signal,
   openSourcePackages,
-  skillCategories,
+  skillCategories_v2,
   certifications,
+  testimonials_tier2,
+  testimonials_tier3,
   timeline,
   articles,
   contact,
@@ -54,54 +55,64 @@ function SectionHeading({
   );
 }
 
-export function SignalSection() {
-  return (
-    <section className="px-6 sm:px-8 py-16 sm:py-20 bg-surface/20">
-      <div className="mx-auto max-w-4xl">
-        <FadeInOnScroll>
-          <div className="border-l-2 border-accent-active/30 pl-8 py-2">
-            <p className="text-lg sm:text-xl font-light leading-relaxed text-text-primary mb-6 italic">
-              &ldquo;{signal.quote}&rdquo;
-            </p>
-            <footer className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-              <span className="text-sm text-accent-active font-normal">
-                {signal.author}
-              </span>
-              <span className="hidden sm:inline text-text-secondary/40">&mdash;</span>
-              <span className="text-text-secondary text-sm font-light">
-                {signal.title}
-              </span>
-              <span className="text-text-secondary/40 text-xs font-mono">
-                ({signal.relationship})
-              </span>
-            </footer>
-          </div>
-        </FadeInOnScroll>
-      </div>
-    </section>
-  );
-}
-
 function Packages() {
+  const featured = openSourcePackages.filter((pkg) => pkg.featured);
+  const remaining = openSourcePackages.filter((pkg) => !pkg.featured);
+
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-      {openSourcePackages.map((pkg, i) => (
-        <FadeInOnScroll key={pkg.name} delay={i * 0.03}>
-          <a
-            href={`https://www.npmjs.com/package/@rezzed.ai/${pkg.name}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block h-full p-3 rounded-lg border border-border/60 bg-surface/30 hover:border-accent-active/40 transition-all duration-300"
+    <div>
+      {/* Featured top 3 packages with npm badges */}
+      <div className="grid gap-4 mb-6">
+        {featured.map((pkg, i) => (
+          <FadeInOnScroll key={pkg.name} delay={i * 0.1}>
+            <a
+              href={pkg.npmUrl || `https://www.npmjs.com/package/@rezzed.ai/${pkg.name}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-4 rounded-lg border border-border/60 bg-surface/30 hover:border-accent-active/40 transition-all duration-300"
+            >
+              <div className="flex items-start justify-between gap-4 mb-2">
+                <span className="font-mono text-sm text-accent-active/70 group-hover:text-accent-active transition-colors">
+                  @rezzed.ai/{pkg.name}
+                </span>
+                <img
+                  src={`https://img.shields.io/npm/dm/@rezzed.ai/${pkg.name}.svg?style=flat-square&color=5bb8d4`}
+                  alt={`${pkg.name} downloads`}
+                  className="h-5"
+                />
+              </div>
+              <span className="block text-xs text-text-secondary font-light">
+                {pkg.description}
+              </span>
+            </a>
+          </FadeInOnScroll>
+        ))}
+      </div>
+
+      {/* Remaining packages - collapsed */}
+      <FadeInOnScroll delay={0.3}>
+        <a
+          href="https://www.npmjs.com/~rezzed.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-accent-active transition-colors duration-300"
+        >
+          <span>See all {openSourcePackages.length} packages on npm</span>
+          <svg
+            className="w-3.5 h-3.5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={1.5}
           >
-            <span className="block font-mono text-xs text-accent-active/70 group-hover:text-accent-active transition-colors mb-1">
-              @rezzed.ai/{pkg.name}
-            </span>
-            <span className="block text-xs text-text-secondary font-light">
-              {pkg.description}
-            </span>
-          </a>
-        </FadeInOnScroll>
-      ))}
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+            />
+          </svg>
+        </a>
+      </FadeInOnScroll>
     </div>
   );
 }
@@ -112,7 +123,7 @@ function Skills() {
   return (
     <div>
       <div className="space-y-8 mb-10">
-        {skillCategories.map((category) => (
+        {skillCategories_v2.map((category) => (
           <div key={category.label}>
             <FadeInOnScroll>
               <h3 className="text-sm font-mono text-accent-active/80 tracking-wide mb-3">
@@ -148,6 +159,46 @@ function Skills() {
           ))}
         </div>
       </FadeInOnScroll>
+
+      {/* Tier 2 Testimonials */}
+      <div className="mt-16 space-y-6">
+        {testimonials_tier2.map((testimonial, i) => (
+          <FadeInOnScroll key={testimonial.author} delay={i * 0.1}>
+            <div className="border-l border-accent-active/20 pl-6 py-2">
+              <p className="text-sm font-light leading-relaxed text-text-secondary mb-3 italic">
+                &ldquo;{testimonial.quote}&rdquo;
+              </p>
+              <footer className="flex flex-col gap-1">
+                <span className="text-xs text-accent-active/80 font-medium">
+                  {testimonial.author}
+                </span>
+                <span className="text-text-secondary/70 text-xs font-light">
+                  {testimonial.title}
+                </span>
+                <span className="px-2 py-0.5 text-[10px] font-mono bg-accent-active/10 text-accent-active/70 rounded border border-accent-active/20 tracking-wide inline-block w-fit">
+                  {testimonial.relationship}
+                </span>
+              </footer>
+            </div>
+          </FadeInOnScroll>
+        ))}
+      </div>
+
+      {/* Tier 3 Testimonials - compact */}
+      <div className="mt-8 flex flex-wrap gap-3">
+        {testimonials_tier3.map((testimonial, i) => (
+          <FadeInOnScroll key={testimonial.author} delay={i * 0.1}>
+            <div className="px-4 py-3 rounded border border-border/40 bg-surface/20 max-w-md">
+              <p className="text-xs font-light text-text-secondary/80 mb-2 italic">
+                &ldquo;{testimonial.quote}&rdquo;
+              </p>
+              <span className="text-[10px] text-accent-active/70 font-medium">
+                {testimonial.author}, {testimonial.title}
+              </span>
+            </div>
+          </FadeInOnScroll>
+        ))}
+      </div>
     </div>
   );
 }
