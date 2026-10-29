@@ -30,20 +30,17 @@ export default function SocialProof() {
     <section className="px-6 sm:px-8 py-16 sm:py-20 bg-surface/20">
       <div className="mx-auto max-w-6xl">
         {/* Tier 1 Testimonials — stacked cards */}
-        <div className="space-y-8 mb-16">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-16">
           {testimonials_tier1.map((testimonial, i) => (
             <FadeInOnScroll key={testimonial.author} delay={i * 0.1}>
-              <div className="border-l-2 border-accent-active/20 pl-6 sm:pl-8 py-4 bg-surface/10 rounded-r sm:max-w-[50%]">
+              <div className="border-l-2 border-accent-active/20 pl-6 sm:pl-8 py-4 bg-surface/10 rounded-r h-full">
                 <p className="text-base font-light leading-relaxed text-text-primary mb-4 italic">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <footer className="space-y-2">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                  <div className="flex flex-col gap-0.5">
                     <span className="text-sm text-accent-active font-medium">
                       {testimonial.author}
-                    </span>
-                    <span className="hidden sm:inline text-text-tertiary">
-                      &mdash;
                     </span>
                     <span className="text-text-secondary text-sm font-light">
                       {testimonial.title}
