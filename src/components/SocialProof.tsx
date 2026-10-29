@@ -42,7 +42,7 @@ export default function SocialProof() {
                     <span className="text-sm text-accent-active font-medium">
                       {testimonial.author}
                     </span>
-                    <span className="hidden sm:inline text-text-secondary/40">
+                    <span className="hidden sm:inline text-text-tertiary">
                       &mdash;
                     </span>
                     <span className="text-text-secondary text-sm font-light">
@@ -55,7 +55,7 @@ export default function SocialProof() {
                     </span>
                   </div>
                   {testimonial.detail && (
-                    <p className="text-xs text-text-secondary/70 mt-3 font-light italic">
+                    <p className="text-xs text-text-secondary mt-3 font-light italic">
                       {testimonial.detail}
                     </p>
                   )}
@@ -68,7 +68,7 @@ export default function SocialProof() {
         {/* Company Logos — equal containers, 2 rows */}
         <FadeInOnScroll delay={0.3}>
           <div className="border-t border-border/30 pt-12">
-            <p className="font-mono text-xs text-secondary/60 tracking-widest uppercase mb-8 text-center">
+            <p className="font-mono text-xs text-text-secondary tracking-widest uppercase mb-8 text-center">
               Worked with teams at
             </p>
             <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3">
@@ -77,7 +77,7 @@ export default function SocialProof() {
                   key={logo.name}
                   className="flex items-center justify-center h-10 sm:h-12 rounded-lg border border-border/30 bg-surface/20 hover:border-accent-active/20 hover:bg-surface/40 transition-all duration-300"
                 >
-                  <span className="text-[10px] sm:text-xs font-medium tracking-wide text-text-secondary/50">
+                  <span className="text-xs sm:text-sm font-medium tracking-wide text-text-secondary">
                     {logo.name}
                   </span>
                 </div>

@@ -6,7 +6,8 @@
   --layer-2: #131516;
   --layer-3: #101213;
   --text-primary: #e2e8f0;
-  --text-secondary: #7a8694;
+  --text-secondary: #a3aebb;
+  --text-tertiary: #8b96a3;
   --accent-active: #5bb8d4;
   --accent-warm: #5bb8d4;
   --border: #2a2f35;
@@ -72,6 +73,7 @@
   --color-layer-3: var(--layer-3);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
   --color-accent-active: var(--accent-active);
   --color-accent-warm: var(--accent-warm);
   --color-border: var(--border);
