@@ -156,10 +156,10 @@ function Skills() {
       </FadeInOnScroll>
 
       {/* Tier 2 Testimonials */}
-      <div className="mt-16 space-y-6">
+      <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {testimonials_tier2.map((testimonial, i) => (
           <FadeInOnScroll key={testimonial.author} delay={i * 0.1}>
-            <div className="border-l border-accent-active/20 pl-6 py-2 sm:max-w-[50%]">
+            <div className="border-l border-accent-active/20 pl-6 py-2 h-full">
               <p className="text-sm font-light leading-relaxed text-text-secondary mb-3 italic">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
