@@ -1,54 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { hero } from "@/config/content";
 
-function parseMetric(value: string) {
-  const match = value.match(/^(\d+)(.*)$/);
-  return match
-    ? { num: parseInt(match[1]), suffix: match[2] }
-    : { num: null, suffix: value };
-}
-
-function CountUpMetric({
-  value,
-  label,
-  delay = 0,
-}: {
-  value: string;
-  label: string;
-  delay?: number;
-}) {
-  const { num, suffix } = parseMetric(value);
-  const [display, setDisplay] = useState(num === null ? value : "0");
-
-  useEffect(() => {
-    if (num === null) {
-      // Non-numeric value — fade in as-is
-      const timeout = setTimeout(() => setDisplay(value), delay);
-      return () => clearTimeout(timeout);
-    }
-
-    const timeout = setTimeout(() => {
-      const duration = 800;
-      const start = performance.now();
-      const step = (now: number) => {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - (1 - progress) * (1 - progress);
-        setDisplay(Math.round(eased * num) + suffix);
-        if (progress < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    }, delay);
-    return () => clearTimeout(timeout);
-  }, [num, suffix, value, delay]);
-
+function Metric({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col">
       <span className="text-2xl sm:text-3xl lg:text-4xl font-light text-accent-active font-mono tabular-nums">
-        {display}
+        {value}
       </span>
       <span className="text-sm text-text-secondary mt-1 tracking-wide">
         {label}
@@ -57,27 +17,7 @@ function CountUpMetric({
   );
 }
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.03,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const letterVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 0.3, ease: "easeOut" as const },
-  },
-};
-
 export default function Surface() {
-  const [isReturning, setIsReturning] = useState(false);
-
   useEffect(() => {
     const hour = new Date().getHours();
     const root = document.documentElement;
@@ -93,14 +33,6 @@ export default function Surface() {
     }
   }, []);
 
-  useEffect(() => {
-    const hasVisited = localStorage.getItem("bourlier-visited");
-    if (hasVisited) {
-      setIsReturning(true);
-    }
-    localStorage.setItem("bourlier-visited", new Date().toISOString());
-  }, []);
-
   return (
     <section
       id="about"
@@ -113,42 +45,16 @@ export default function Surface() {
       </div>
 
       <div className="relative mx-auto max-w-6xl w-full py-32">
-        {/* Return visitor greeting */}
-        {isReturning && (
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="block text-xs font-mono text-text-secondary/50 tracking-widest mb-6"
-          >
-            Welcome back.
-          </motion.span>
-        )}
-
         {/* Name */}
-        <motion.h1
-          className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight leading-tight mb-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {hero.name.split("").map((char, i) => (
-            <motion.span
-              key={i}
-              variants={letterVariants}
-              className="inline-block"
-              style={char === " " ? { width: "0.25em" } : undefined}
-            >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
-        </motion.h1>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight leading-tight mb-6">
+          {hero.name}
+        </h1>
 
         {/* Identity */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          transition={{ duration: 0.3, delay: 0 }}
           className="font-mono text-sm tracking-[0.2em] uppercase text-accent-active mb-4"
         >
           {hero.subtitle}
@@ -158,7 +64,7 @@ export default function Surface() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
+          transition={{ duration: 0.3, delay: 0.05 }}
           className="text-xl sm:text-2xl font-light text-text-primary max-w-2xl mb-6 leading-relaxed"
         >
           {hero.tagline}
@@ -168,8 +74,8 @@ export default function Surface() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-sm sm:text-base max-w-2xl mb-6 leading-relaxed"
+          transition={{ duration: 0.3, delay: 0.1 }}
+          className="text-base sm:text-lg max-w-2xl mb-6 leading-relaxed"
           style={{ color: "rgba(200, 210, 220, 0.9)" }}
         >
           {hero.description}
@@ -179,7 +85,7 @@ export default function Surface() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
+          transition={{ duration: 0.3, delay: 0.15 }}
           className="flex gap-6 mb-16"
         >
           <a
@@ -202,16 +108,11 @@ export default function Surface() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
           className="grid grid-cols-2 gap-6 sm:flex sm:flex-wrap sm:gap-12 lg:gap-16 mb-24"
         >
-          {hero.metrics.map((metric, i) => (
-            <CountUpMetric
-              key={metric.label}
-              value={metric.value}
-              label={metric.label}
-              delay={700 + i * 100}
-            />
+          {hero.metrics.map((metric) => (
+            <Metric key={metric.label} value={metric.value} label={metric.label} />
           ))}
         </motion.div>
 
@@ -219,7 +120,7 @@ export default function Surface() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.3, delay: 0.25 }}
         >
           <a
             href="#systems"

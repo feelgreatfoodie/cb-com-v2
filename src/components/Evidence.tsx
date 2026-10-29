@@ -167,7 +167,7 @@ function Skills() {
                 <span className="text-xs text-accent-active/80 font-medium">
                   {testimonial.author}
                 </span>
-                <span className="text-text-secondary/70 text-xs font-light">
+                <span className="text-text-secondary text-xs font-light">
                   {testimonial.title}
                 </span>
                 <span className="px-2 py-0.5 text-[10px] font-mono bg-accent-active/10 text-accent-active/70 rounded border border-accent-active/20 tracking-wide inline-block w-fit">
@@ -184,7 +184,7 @@ function Skills() {
         {testimonials_tier3.map((testimonial, i) => (
           <FadeInOnScroll key={testimonial.author} delay={i * 0.1}>
             <div className="px-4 py-3 rounded border border-border/40 bg-surface/20 sm:max-w-[50%]">
-              <p className="text-xs font-light text-text-secondary/80 mb-2 italic">
+              <p className="text-xs font-light text-text-secondary mb-2 italic">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
               <span className="text-[10px] text-accent-active/70 font-medium">
@@ -244,9 +244,9 @@ function Writing() {
                 {article.title}
               </span>
               <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                <span className="text-xs text-text-secondary/50">{article.date}</span>
+                <span className="text-xs text-text-tertiary">{article.date}</span>
                 {article.tags.map((tag) => (
-                  <span key={tag} className="text-[10px] text-text-secondary/40 tracking-wide">{tag}</span>
+                  <span key={tag} className="text-[10px] text-text-tertiary tracking-wide">{tag}</span>
                 ))}
               </div>
             </div>
@@ -313,7 +313,7 @@ export default function Evidence() {
           <FadeInOnScroll>
             <h3 className="text-lg font-light mb-6">
               Open Source
-              <span className="text-text-secondary/60 font-mono text-sm ml-2">10 packages on npm</span>
+              <span className="text-text-tertiary font-mono text-sm ml-2">10 packages on npm</span>
             </h3>
           </FadeInOnScroll>
           <Packages />

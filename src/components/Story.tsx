@@ -66,7 +66,7 @@ function SystemCard({
             </span>
           </div>
 
-          <p className="font-mono text-xs text-text-secondary/60 tracking-wide mb-4">
+          <p className="font-mono text-xs text-text-tertiary tracking-wide mb-4">
             {system.slug}
           </p>
 
@@ -78,7 +78,7 @@ function SystemCard({
             {system.stack.map((tech) => (
               <span
                 key={tech}
-                className="px-2 py-0.5 rounded border border-border/40 bg-surface/50 font-mono text-[11px] text-text-secondary/70"
+                className="px-2 py-0.5 rounded border border-border/40 bg-surface/50 font-mono text-[11px] text-text-secondary"
               >
                 {tech}
               </span>
@@ -117,7 +117,7 @@ function Methodology() {
               <span className="block text-sm font-mono tracking-wider text-text-primary mb-1">
                 {item.label}
               </span>
-              <span className="block text-xs text-text-secondary/60 font-light">
+              <span className="block text-xs text-text-tertiary font-light">
                 {item.description}
               </span>
             </div>
