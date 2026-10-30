@@ -52,8 +52,6 @@ All are optional. Put them in `.env.local`, which git ignores.
 
 - Every claim on the page must hold up in a technical interview.
 - The CacheBash tool count is written as "50+". The real count is 58.
-- The healthcare employer is never named. It appears only as "a healthcare technology company".
-- No em dashes in new copy.
 - Hero text and metrics render on the server. Avoid animations that start text at opacity 0 or numbers at 0, because crawlers, link previews and LLM screeners read the initial HTML.
 
 ## Color tokens
