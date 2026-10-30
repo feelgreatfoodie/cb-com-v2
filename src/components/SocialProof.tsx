@@ -34,7 +34,7 @@ export default function SocialProof() {
           {testimonials_tier1.map((testimonial, i) => (
             <FadeInOnScroll key={testimonial.author} delay={i * 0.1}>
               <div className="border-l-2 border-accent-active/20 pl-6 sm:pl-8 py-4 bg-surface/10 rounded-r h-full">
-                <p className="text-base font-light leading-relaxed text-text-primary mb-4 italic">
+                <p className="text-base leading-relaxed text-text-primary mb-4">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <footer className="space-y-2">
@@ -42,7 +42,7 @@ export default function SocialProof() {
                     <span className="text-sm text-accent-active font-medium">
                       {testimonial.author}
                     </span>
-                    <span className="text-text-secondary text-sm font-light">
+                    <span className="text-text-secondary text-sm">
                       {testimonial.title}
                     </span>
                   </div>
@@ -52,7 +52,7 @@ export default function SocialProof() {
                     </span>
                   </div>
                   {testimonial.detail && (
-                    <p className="text-xs text-text-secondary mt-3 font-light italic">
+                    <p className="text-sm text-text-secondary mt-3">
                       {testimonial.detail}
                     </p>
                   )}

@@ -70,7 +70,7 @@ function SystemCard({
             {system.slug}
           </p>
 
-          <p className="text-text-secondary text-sm font-light leading-relaxed mb-4 flex-1">
+          <p className="text-text-secondary text-sm leading-relaxed mb-4 flex-1">
             {system.description}
           </p>
 
@@ -117,7 +117,7 @@ function Methodology() {
               <span className="block text-sm font-mono tracking-wider text-text-primary mb-1">
                 {item.label}
               </span>
-              <span className="block text-xs text-text-tertiary font-light">
+              <span className="block text-xs text-text-tertiary">
                 {item.description}
               </span>
             </div>
