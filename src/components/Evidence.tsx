@@ -313,7 +313,7 @@ export default function Evidence() {
           <FadeInOnScroll>
             <h3 className="text-lg font-light mb-6">
               Open Source
-              <span className="text-text-tertiary font-mono text-sm ml-2">10 packages on npm</span>
+              <span className="text-text-tertiary font-mono text-sm ml-2">11 packages on npm</span>
             </h3>
           </FadeInOnScroll>
           <Packages />
