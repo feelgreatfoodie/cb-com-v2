@@ -55,7 +55,7 @@ export default function Navigation() {
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.replace("#", "");
                 return (
-                  <a key={link.href} href={link.href} className={`relative text-sm font-light transition-colors duration-300 ${isActive ? "text-text-primary" : "text-text-secondary hover:text-text-primary"}`}>
+                  <a key={link.href} href={link.href} className={`relative text-sm transition-colors duration-300 ${isActive ? "text-text-primary" : "text-text-secondary hover:text-text-primary"}`}>
                     {link.label}
                     {isActive && (
                       <motion.span layoutId="nav-indicator" className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-active" transition={{ type: "spring", stiffness: 380, damping: 30 }} />
