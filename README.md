@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# bourlier.ai
 
-## Getting Started
+Source for [bourlier.ai](https://bourlier.ai), Christian Bourlier's hiring site. One long page built for a recruiter who has 30 seconds: the hero states role and proof, then testimonials, systems, evidence and writing follow on scroll.
 
-First, run the development server:
+Next.js 16 (App Router, Turbopack), React 19, Tailwind CSS 4, framer-motion. Hosted on Vercel.
+
+## Run it locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install --include=dev
+NODE_ENV=development npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+If your shell exports `NODE_ENV=production`, plain `npm install` skips devDependencies and `next dev` fails with `Cannot find module 'typescript'`. The two flags above avoid that. Next.js may also try to add `typescript` to `package.json` on its own; discard that change.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script | What it does |
+|---|---|
+| `npm run dev` | Dev server on port 3000 |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | ESLint (one known error in `test-ghost-bubbles.js`) |
 
-## Learn More
+## Environment variables
 
-To learn more about Next.js, take a look at the following resources:
+All are optional. Put them in `.env.local`, which git ignores.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Used by | Without it |
+|---|---|---|
+| `GOOGLE_AI_API_KEY` | Chat assistant (Gemini 2.0 Flash) | Chat answers from canned responses in `MockProvider` |
+| `GOOGLE_SHEETS_CLIENT_EMAIL`, `GOOGLE_SHEETS_PRIVATE_KEY`, `GOOGLE_SHEETS_SPREADSHEET_ID` | Chat transcript logging | Chats are not logged |
+| `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST` | PostHog analytics, proxied through `/ingest` | No analytics |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Where things live
 
-## Deploy on Vercel
+| Path | Contents |
+|---|---|
+| `src/config/content.ts` | Every fact on the page: hero, metrics, systems, timeline, testimonials, skills. Edit copy here first. |
+| `src/lib/ai/provider.ts` | Chat assistant system prompt and fallback answers. Keep its facts in sync with `content.ts`. |
+| `src/app/layout.tsx` | Page metadata, JSON-LD, and the global chat widget, scroll bar and Konami overlay |
+| `src/app/opengraph-image.tsx`, `twitter-image.tsx` | Link-preview images, rendered at request time |
+| `src/app/llms.txt/route.ts` | Plain-text summary for LLM crawlers at `/llms.txt` |
+| `src/app/api/chat/route.ts` | Chat API: Zod validation, in-memory rate limit (30 per hour in production, resets on cold start) |
+| `src/app/memory/page.tsx` | `/memory`, a product page for CacheBash agent memory |
+| `src/app/globals.css` | Color tokens and animations |
+| `src/components/` | Page sections, in render order: `Surface` (hero), `SocialProof`, `Story` (systems, approach), `Evidence` (skills, testimonials, timeline, writing, contact), `Footer` |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`src/components/ProblemSolver.tsx` is not mounted on any page. [PROBLEM_SOLVER.md](PROBLEM_SOLVER.md) and [AI_CHAT_WIDGET.md](AI_CHAT_WIDGET.md) describe those two features in more depth.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Content rules
+
+- Every claim on the page must hold up in a technical interview.
+- The CacheBash tool count is written as "50+". The real count is 58.
+- The healthcare employer is never named. It appears only as "a healthcare technology company".
+- No em dashes in new copy.
+- Hero text and metrics render on the server. Avoid animations that start text at opacity 0 or numbers at 0, because crawlers, link previews and LLM screeners read the initial HTML.
+
+## Color tokens
+
+Defined in `src/app/globals.css` against a `#161819` background.
+
+| Token | Value | Contrast | Use |
+|---|---|---|---|
+| `text-primary` | `#e2e8f0` | about 14:1 | Headings, quotes, body |
+| `text-secondary` | `#a3aebb` | about 8:1 | Supporting text |
+| `text-tertiary` | `#8b96a3` | about 6:1 | Labels and metadata |
+| `accent-active` | `#5bb8d4` | | Links, metrics, timeline years |
+
+Use these tokens for text. Opacity modifiers on text colors (`text-text-secondary/50`) drop contrast below 4.5:1.
+
+## Deploy
+
+Vercel project `bourlier-ai` under the `feelgreatfoodies-projects` team.
+
+- Every pull request gets a preview deployment, linked from the PR's Vercel status check.
+- A merge to `main` deploys to production at bourlier.ai.
+- Changes go through a branch and pull request. Nothing is pushed straight to `main`.
+- Commits are authored as `feelgreatfoodie <feelgreatfoodie@users.noreply.github.com>`.
+
+## Related sites
+
+- [christianbourlier.com](https://christianbourlier.com): personal site with themed palettes
+- [rezzed.ai](https://rezzed.ai): Rezzed developer tools and CacheBash
