@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt =
-  "Christian Bourlier — AI Systems Architect | CacheBash";
+  "Christian Bourlier — Principal AI Systems Architect | CacheBash";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -58,7 +58,7 @@ export default async function Image() {
             textTransform: "uppercase",
           }}
         >
-          AI Systems Architect
+          Principal AI Systems Architect
         </div>
 
         {/* Divider */}
@@ -81,7 +81,7 @@ export default async function Image() {
             lineHeight: 1.4,
           }}
         >
-          Bounded AI systems that ship. 60+ MCP tools. Multi-agent
+          Bounded AI systems that ship. 50+ MCP tools. Multi-agent
           orchestration. Full audit coverage.
         </div>
 
@@ -94,7 +94,7 @@ export default async function Image() {
           }}
         >
           {[
-            { value: "60+", label: "MCP Tools" },
+            { value: "50+", label: "MCP Tools" },
             { value: "4", label: "Production Systems" },
             { value: "100%", label: "Audit Coverage" },
             { value: "0", label: "Uncontained Failures" },

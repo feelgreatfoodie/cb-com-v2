@@ -5,9 +5,9 @@
 
 export const siteConfig = {
   name: "Christian Bourlier",
-  title: "Christian Bourlier — AI Systems Architect",
+  title: "Christian Bourlier — Principal AI Systems Architect",
   description:
-    "I build the production infrastructure where AI agents do reliable, governed work at scale. 60+ tool MCP server. Multi-agent orchestration. Building on Claude.",
+    "Production AI and data infrastructure where agents do reliable, governed work. 50+ tool MCP server. Multi-agent orchestration across Claude, Gemini and Vertex AI.",
   url: "https://bourlier.ai",
   email: "christian@bourlier.ai",
   linkedin: "https://linkedin.com/in/christianbourlier",
@@ -18,15 +18,15 @@ export const siteConfig = {
 
 export const hero = {
   name: "Christian Bourlier",
-  subtitle: "AI Systems Architect",
+  subtitle: "Principal AI Systems Architect",
   tagline: "Bounded AI systems that ship.",
   description:
-    "I build the production infrastructure where AI agents do reliable, governed work at scale. Author of CacheBash — a 60+ tool MCP server for multi-agent orchestration.",
+    "Production AI and data infrastructure where agents do reliable, governed work. Solutions lead for DataTrue across the Americas. Staff data engineering for a healthcare technology company. Author of CacheBash, an open-source MCP server with 50+ tools coordinating 30+ agent programs across Claude, Gemini and Vertex AI.",
   metrics: [
-    { value: "60M+", label: "Daily Records Processed" },
-    { value: "99.9%", label: "Pipeline Uptime" },
-    { value: "8", label: "Engineers Mentored → 75% Promoted" },
-    { value: "10x", label: "Throughput Improvement" },
+    { value: "50+", label: "MCP Tools in Production" },
+    { value: "30+", label: "Autonomous Agent Programs" },
+    { value: "11", label: "Open-Source npm Packages" },
+    { value: "60M+", label: "Daily Records at 99.9% Uptime" },
   ],
   availability: "Open to applied AI roles",
   scrollCta: "See what's running",
@@ -82,7 +82,7 @@ export const systems = [
     name: "CacheBash",
     slug: "mcp-relay + persistent-task-state",
     description:
-      "Production MCP server with 60+ tool endpoints for multi-agent coordination on Claude Code. Handles task dispatch, relay messaging, persistent state, sprint orchestration, and fleet telemetry across distributed agent sessions.",
+      "Production MCP server with 50+ tool endpoints for multi-agent coordination on Claude Code. Handles task dispatch, relay messaging, persistent state, sprint orchestration, and fleet telemetry across distributed agent sessions.",
     stack: ["Cloud Run", "Firestore", "TypeScript"],
     url: "https://www.npmjs.com/package/@rezzed.ai/cachebash",
     github: "https://github.com/rezzedai",
@@ -92,7 +92,7 @@ export const systems = [
     name: "Rezzed.ai",
     slug: "bounded-multi-agent-orchestration",
     description:
-      "Role-specialized multi-agent system where 10+ LLM-powered agents operate within identity-scoped boundaries, static context budgets, and pre-tool-use policy gates with constitutional safety governance.",
+      "Role-specialized multi-agent system where 30+ LLM-powered agents operate within identity-scoped boundaries, static context budgets, and pre-tool-use policy gates with constitutional safety governance.",
     stack: ["Claude Code", "Vertex AI", "MCP", "Cloud Run"],
     url: "https://rezzed.ai",
     github: "https://github.com/rezzedai",
@@ -181,15 +181,22 @@ export const certifications = [
 
 export const timeline = [
   {
-    year: "2025",
+    year: "2026",
     endYear: "present",
-    title: "Founder & Principal Architect — Rezzed.ai",
+    title: "EVP, Solutions (Americas) — DataTrue",
     description:
-      "AI-native tooling studio. CacheBash MCP server, multi-agent orchestration framework, 10 open source packages on npm. Bounded systems that ship.",
+      "Solution architecture and the AI agent roadmap for DataTrue's US and Canada partnership. Consent validation and data governance work with privacy, legal and engineering teams. Built automated CCPA/CPRA scan reports for prospect outreach.",
   },
   {
     year: "2025",
     endYear: "present",
+    title: "Founder & Principal Architect — Rezzed.ai",
+    description:
+      "AI-native tooling studio. CacheBash MCP server, multi-agent orchestration framework, 11 open source packages on npm. Bounded systems that ship.",
+  },
+  {
+    year: "2025",
+    endYear: "2026",
     title: "Co-Founder & Principal Architect — Three Bears Data",
     description:
       "Marketing measurement studio. Architected OptiMeasure — cookieless attribution engine (Python/Vertex AI). 3 clients in contracts.",
