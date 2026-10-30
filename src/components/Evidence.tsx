@@ -76,7 +76,7 @@ function Packages() {
                   @rezzed.ai/{pkg.name}
                 </span>
               </div>
-              <span className="block text-xs text-text-secondary font-light">
+              <span className="block text-xs text-text-secondary">
                 {pkg.description}
               </span>
             </a>
@@ -156,18 +156,18 @@ function Skills() {
       </FadeInOnScroll>
 
       {/* Tier 2 Testimonials */}
-      <div className="mt-16 space-y-6">
+      <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {testimonials_tier2.map((testimonial, i) => (
           <FadeInOnScroll key={testimonial.author} delay={i * 0.1}>
-            <div className="border-l border-accent-active/20 pl-6 py-2 sm:max-w-[50%]">
-              <p className="text-sm font-light leading-relaxed text-text-secondary mb-3 italic">
+            <div className="border-l border-accent-active/20 pl-6 py-2 h-full">
+              <p className="text-base leading-relaxed text-text-primary/90 mb-3">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
               <footer className="flex flex-col gap-1">
                 <span className="text-xs text-accent-active/80 font-medium">
                   {testimonial.author}
                 </span>
-                <span className="text-text-secondary/70 text-xs font-light">
+                <span className="text-text-secondary text-xs">
                   {testimonial.title}
                 </span>
                 <span className="px-2 py-0.5 text-[10px] font-mono bg-accent-active/10 text-accent-active/70 rounded border border-accent-active/20 tracking-wide inline-block w-fit">
@@ -184,7 +184,7 @@ function Skills() {
         {testimonials_tier3.map((testimonial, i) => (
           <FadeInOnScroll key={testimonial.author} delay={i * 0.1}>
             <div className="px-4 py-3 rounded border border-border/40 bg-surface/20 sm:max-w-[50%]">
-              <p className="text-xs font-light text-text-secondary/80 mb-2 italic">
+              <p className="text-sm text-text-secondary mb-2">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
               <span className="text-[10px] text-accent-active/70 font-medium">
@@ -216,8 +216,8 @@ function Timeline() {
               <span className="font-mono text-xs text-accent-active/80 tracking-widest">
                 {item.year} &mdash; {item.endYear === "present" ? "Present" : item.endYear}
               </span>
-              <h3 className="text-base font-light mt-1 mb-1 text-text-secondary">{item.title}</h3>
-              <p className="text-text-secondary font-light leading-relaxed text-sm max-w-xl">
+              <h3 className="text-lg mt-1 mb-1 text-text-primary">{item.title}</h3>
+              <p className="text-text-secondary leading-relaxed text-base max-w-2xl">
                 {item.description}
               </p>
             </div>
@@ -240,13 +240,13 @@ function Writing() {
             className="group flex items-start sm:items-center justify-between p-5 rounded-lg border border-border/30 hover:border-accent-active/30 bg-surface/20 transition-all duration-300 gap-4"
           >
             <div className="flex-1 min-w-0">
-              <span className="block text-sm font-light text-text-primary group-hover:text-accent-active transition-colors mb-2">
+              <span className="block text-sm text-text-primary group-hover:text-accent-active transition-colors mb-2">
                 {article.title}
               </span>
               <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                <span className="text-xs text-text-secondary/50">{article.date}</span>
+                <span className="text-xs text-text-tertiary">{article.date}</span>
                 {article.tags.map((tag) => (
-                  <span key={tag} className="text-[10px] text-text-secondary/40 tracking-wide">{tag}</span>
+                  <span key={tag} className="text-[10px] text-text-tertiary tracking-wide">{tag}</span>
                 ))}
               </div>
             </div>
@@ -295,7 +295,7 @@ function Contact() {
               {link.label === "Medium" && (
                 <svg className="w-4 h-4 text-text-secondary group-hover:text-accent-active transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" /></svg>
               )}
-              <span className="text-sm font-light text-text-secondary group-hover:text-accent-active transition-colors">{link.label}</span>
+              <span className="text-sm text-text-secondary group-hover:text-accent-active transition-colors">{link.label}</span>
             </a>
           </FadeInOnScroll>
         ))}
@@ -313,7 +313,7 @@ export default function Evidence() {
           <FadeInOnScroll>
             <h3 className="text-lg font-light mb-6">
               Open Source
-              <span className="text-text-secondary/60 font-mono text-sm ml-2">10 packages on npm</span>
+              <span className="text-text-tertiary font-mono text-sm ml-2">11 packages on npm</span>
             </h3>
           </FadeInOnScroll>
           <Packages />

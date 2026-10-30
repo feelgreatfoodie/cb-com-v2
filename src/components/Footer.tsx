@@ -13,11 +13,11 @@ export default function Footer() {
       className="border-t border-border/30 bg-base"
     >
       <div className="mx-auto max-w-6xl px-6 sm:px-8 py-12">
-        <p className="text-center text-text-secondary/60 text-sm font-light mb-8">
+        <p className="text-center text-text-tertiary text-sm mb-8">
           {footer.tagline}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="text-sm text-text-secondary font-light">
+          <div className="text-sm text-text-secondary">
             &copy; {new Date().getFullYear()} {footer.signature}
           </div>
           <div className="flex items-center gap-6">
@@ -36,7 +36,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <p className="text-center font-mono text-xs text-text-secondary/30 tracking-[0.3em] mt-8">
+        <p className="text-center font-mono text-xs text-text-tertiary tracking-[0.3em] mt-8">
           {footer.endOfLine}
         </p>
       </div>

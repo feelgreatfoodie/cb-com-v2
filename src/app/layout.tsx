@@ -17,9 +17,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bourlier.ai"),
-  title: "Christian Bourlier — AI Systems Architect",
+  title: "Christian Bourlier — Principal AI Systems Architect",
   description:
-    "I architect production AI systems where autonomous agents perform reliable, governed work at scale. 60+ tool MCP server. Multi-agent orchestration. Full audit coverage.",
+    "I architect production AI systems where autonomous agents perform reliable, governed work at scale. 50+ tool MCP server. Multi-agent orchestration. Full audit coverage.",
   keywords: [
     "AI systems architect",
     "MCP server",
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://bourlier.ai",
-    title: "Christian Bourlier — AI Systems Architect",
-    description: "Bounded AI systems that ship. 3 production systems. 60+ MCP tools. 100% audit coverage. 0 uncontained failures.",
+    title: "Christian Bourlier — Principal AI Systems Architect",
+    description: "Bounded AI systems that ship. 3 production systems. 50+ MCP tools. 100% audit coverage. 0 uncontained failures.",
     siteName: "bourlier.ai",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Christian Bourlier — AI Systems Architect",
+    title: "Christian Bourlier — Principal AI Systems Architect",
     description: "Bounded AI systems that ship. Production AI infrastructure with governance, safety, and verifiable evidence.",
   },
   robots: {
@@ -68,7 +68,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               name: "Christian Bourlier",
               url: "https://bourlier.ai",
               email: "christian@bourlier.ai",
-              jobTitle: "AI Systems Architect",
+              jobTitle: "Principal AI Systems Architect",
               sameAs: [
                 "https://linkedin.com/in/christianbourlier",
                 "https://medium.com/@christianbourlier",

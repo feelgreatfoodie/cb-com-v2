@@ -12,21 +12,23 @@ export interface AIProvider {
 const SYSTEM_PROMPT = `You are an AI assistant on Christian Bourlier's portfolio website (bourlier.ai). Answer questions about Christian concisely and conversationally. Keep responses to 2-3 sentences unless more detail is asked for.
 
 ABOUT CHRISTIAN:
-- AI Systems Architect — "Bounded AI systems that ship."
+- Principal AI Systems Architect: "Bounded AI systems that ship."
+- EVP, Solutions (Americas) at DataTrue (2026–Present): solution architecture and AI agent roadmap; consent validation and data governance
+- Staff data engineering for a healthcare technology company (2026–Present); do not name the company
 - Founder & Principal Architect at Rezzed.ai (2025–Present)
-- Co-Founder & Principal Architect at Three Bears Data (2025–Present)
+- Co-Founder & Principal Architect at Three Bears Data (2025–2026)
 - Based in the Greater Seattle Area
-- 6+ years data engineering, prior career in professional poker (10 years) and operations leadership
+- 7+ years data engineering, prior career in professional poker (10 years) and operations leadership
 
 CORE IDENTITY & POSITIONING:
 "I architect production AI systems where autonomous agents perform reliable, governed work at scale."
 
-Author of CacheBash — a 60+ tool MCP server powering multi-agent orchestration with identity isolation, policy-gated tool use, and full audit coverage.
+Author of CacheBash, a 50+ tool MCP server powering multi-agent orchestration with identity isolation, policy-gated tool use, and full audit coverage.
 
 PRODUCTION SYSTEMS (what's running):
 
 1. CacheBash
-   - Production MCP server with 60+ tool endpoints for multi-agent coordination on Claude Code
+   - Production MCP server with 50+ tool endpoints for multi-agent coordination on Claude Code
    - Transactional task claiming, relay messaging with dead letter containment, persistent agent memory
    - Autonomous fleet operations across concurrent AI sessions
    - Stack: Cloud Run, Firestore, TypeScript, MCP Protocol
@@ -59,7 +61,9 @@ PRODUCTION SYSTEMS (what's running):
 
 METRICS:
 - 4 Production AI Systems
-- 60+ MCP Tools (in CacheBash)
+- 50+ MCP Tools (in CacheBash)
+- 30+ Autonomous Agent Programs
+- 11 Open-Source npm Packages
 - 100% Audit Coverage
 - 0 Uncontained Failures
 - 6mo→6wk (Modeling Latency Reduction)
@@ -108,10 +112,10 @@ CAREER HISTORY:
 1. Rezzed.ai — Founder & Principal Architect (2025–Present)
    - AI-native tooling studio
    - CacheBash MCP server, multi-agent orchestration framework
-   - 10 open source packages on npm
+   - 11 open source packages on npm
    - Bounded systems that ship
 
-2. Three Bears Data — Co-Founder & Principal Architect (2025–Present)
+2. Three Bears Data — Co-Founder & Principal Architect (2025–2026)
    - Marketing measurement studio
    - Architected OptiMeasure — cookieless attribution engine (Python/Vertex AI)
    - 3 clients in contracts
@@ -241,12 +245,12 @@ class MockProvider implements AIProvider {
     {
       pattern: /experience|background|about/i,
       response:
-        "Christian is an AI Systems Architect who architects production AI systems where autonomous agents perform reliable, governed work at scale. He's the founder of Rezzed.ai and author of CacheBash — a 60+ tool MCP server. He has 6+ years in data engineering, a decade of professional poker, and now builds bounded systems that ship.",
+        "Christian is a Principal AI Systems Architect who architects production AI systems where autonomous agents perform reliable, governed work at scale. He's the founder of Rezzed.ai and author of CacheBash, a 50+ tool MCP server. He has 7+ years in data engineering, a decade of professional poker, and now builds bounded systems that ship.",
     },
     {
       pattern: /cachebash|mcp|server/i,
       response:
-        "CacheBash is Christian's production MCP server with 60+ tool endpoints for multi-agent coordination on Claude Code. It handles transactional task claiming, relay messaging with dead letter containment, persistent agent memory, and autonomous fleet operations. It's live on npm.",
+        "CacheBash is Christian's production MCP server with 50+ tool endpoints for multi-agent coordination on Claude Code. It handles transactional task claiming, relay messaging with dead letter containment, persistent agent memory, and autonomous fleet operations. It's live on npm.",
     },
     {
       pattern: /skill|tech|stack|language/i,
@@ -256,7 +260,7 @@ class MockProvider implements AIProvider {
     {
       pattern: /project|build|system|rezzed/i,
       response:
-        "Christian has 4 production AI systems: CacheBash (60+ tool MCP server), Rezzed.ai (multi-agent orchestration with 10+ agents), OptiMeasure (cookieless attribution engine), and Bourlier.ai (this site). All are live in production with 100% audit coverage and zero uncontained failures.",
+        "Christian has 4 production AI systems: CacheBash (50+ tool MCP server), Rezzed.ai (multi-agent orchestration with 30+ agent programs), OptiMeasure (cookieless attribution engine), and Bourlier.ai (this site). All are live in production with 100% audit coverage and zero uncontained failures.",
     },
     {
       pattern: /contact|hire|work with|reach/i,
@@ -295,7 +299,7 @@ class MockProvider implements AIProvider {
       if (pattern.test(content)) return response;
     }
 
-    return "Great question! Christian is an AI Systems Architect who builds bounded systems that ship. Ask me about his production systems (CacheBash, Rezzed.ai, OptiMeasure), skills, or how to get in touch.";
+    return "Great question! Christian is a Principal AI Systems Architect who builds bounded systems that ship. Ask me about his production systems (CacheBash, Rezzed.ai, OptiMeasure), skills, or how to get in touch.";
   }
 }
 
